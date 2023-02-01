@@ -3,10 +3,18 @@ import '../App.css';
 function Projects() {
     return (
         <div className='projects'>
-            Projects
-            <div className='tech_menu'>Menu</div>
+            PROJECTS
+            <div className='tech_menu'>
+                <ul>
+                    <li>ALL</li>
+                    <li>REACT</li>
+                </ul>
+            </div>
             <div className='projects_container'>
-                <div className='single_project'>Project 1</div>
+                <div className='single_project'>
+                    <div>name</div>
+                    <button className='view_btn'>view</button>
+                </div>
             </div>
             <div className='tag_menu'>
                 <div>Tags:</div>
