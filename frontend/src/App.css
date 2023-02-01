@@ -158,6 +158,7 @@
   flex-direction: row;
   justify-self: center;
   width: 90%;
+  padding-left: 20px;
 }
 
 .single_project {
@@ -170,7 +171,8 @@
 
 .view_btn {
   align-self: flex-end;
-  height: 20px;
+  margin-left: 300px;
+  height: 30px;
 }
 
 .tag_menu {
@@ -178,6 +180,7 @@
   flex-direction: row;
   height: 20px;
   gap: 10px;
+  padding-left: 40px;
 }
 
 .single_tag {
