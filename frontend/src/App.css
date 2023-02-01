@@ -21,16 +21,75 @@
 .home_desc {
   border: 1px solid white;
   display: block;
-  width: 300px;
+  width: 380px;
   height: 200px;
   margin-top: 300px;
-  margin-right: 200px;
+  margin-left: 200px;
+  padding: 8px;
+}
+
+.social_links {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  justify-self: flex-end;
+  width: 200px;
+  height: 150px;
+  margin-left: 700px;
+  gap: 14px;
+}
+
+.social_icon {
+  width: 50px;
+  height: 50px;
 }
 
 .stack {
   display: flex;
   height: 100vh;
   width: 100vw;
+  padding-top: 50px;
+}
+
+.back_front {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100%;
+}
+
+.back {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.dev_block_back {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.front {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 5;
+  width: 100%;
+}
+
+.dev_block_front {
+  display: flex;
+  flex-direction: row;
+}
+
+.front_dev_tech {
+display: flex;
+flex-direction: column;
 }
 
 .projects {
@@ -57,4 +116,8 @@
   flex-direction: row;
   gap: 20px;
   list-style: none;
+}
+
+.navbar > ul > li > a {
+  color: black;
 }
