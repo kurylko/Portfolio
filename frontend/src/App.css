@@ -60,6 +60,14 @@
   height: 100%;
 }
 
+.back_title {
+  justify-self: flex-end;
+}
+
+.front_title {
+  justify-self: flex-start;
+}
+
 .back {
   display: flex;
   flex-direction: column;
@@ -67,11 +75,20 @@
   color: white;
   width: 100%;
   flex-grow: 1;
+  gap: 30px;
+  padding-left: 15px;
+  padding-top: 15px;
 }
 
 .dev_block_back {
   display: flex;
   flex-direction: row;
+  gap: 15px;
+}
+
+.back_dev_tech {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -80,16 +97,21 @@
   flex-direction: column;
   flex-grow: 5;
   width: 100%;
+  gap: 20px;
+  padding-left: 15px;
+  padding-top: 15px;
 }
 
 .dev_block_front {
   display: flex;
   flex-direction: row;
+  gap: 15px;
 }
 
 .front_dev_tech {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .projects {
@@ -111,13 +133,13 @@ flex-direction: column;
   background-color: rgba(207, 203, 203, 1);
 }
 
-.navbar > ul {
+.navbar>ul {
   display: flex;
   flex-direction: row;
   gap: 20px;
   list-style: none;
 }
 
-.navbar > ul > li > a {
+.navbar>ul>li>a {
   color: black;
 }
