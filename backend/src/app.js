@@ -1,7 +1,6 @@
 import express from "express";
-import { database } from "./firebase";
-import { RequestHandler } from "express";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore/lite";
+import { database } from "./firebase.js";
 
 
 import dotenv from "dotenv";
@@ -10,8 +9,6 @@ dotenv.config();
 const EXPRESS_PORT = parseInt(process.env.EXPRESS_PORT ?? "5005", 10);
 
 const app = express();
-
-const port = process.env.EXPRESS_PORT;
 
 app.use(express.json());
 
@@ -27,10 +24,26 @@ app.get("/", (req, res) => {
 
 const getAllProjects = async (req, res) => {
   const projectCol = collection(database, "projects");
-  const projectsSnapshot = await getDocs(eventsCol);
+  const projectsSnapshot = await getDocs(projectCol);
   const projectsList = projectsSnapshot.docs.map((doc) => doc.data());
   res.json(projectsList);
 };
 
 app.get("/projects", getAllProjects);
 
+
+const getProjectById = async (
+  req,
+  res
+) => {
+  getDoc(doc(database, `projects/${req.params.itemId}`))
+    .then((snapshot) => {
+      snapshot.exists() ? res.json(snapshot.data()) : res.sendStatus(404);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+app.get("/projects/:itemId", getProjectById);
