@@ -1,11 +1,31 @@
 import '../App.css';
+import { useState } from 'react';
 
-function Projects({ projects }) {
-
-    console.log(projects)
+function Projects({ projects = [] }) {
 
     const tags = projects.map((project) => project.tag);
-    console.log("tags", tags)
+
+    const filteredFrameworks = [];
+
+    projects.forEach(element => {
+        if (!filteredFrameworks.find(e => e === element.framework)) {
+            filteredFrameworks.push(element.framework || '')
+        }
+    });
+
+
+    const [selectedFramework, setSelectedFramework] = useState("");
+
+    const onClickAllFrameworks = () => {
+        setSelectedFramework("");
+    };
+
+
+    const filteredProjects = projects.filter((project) => project.framework === selectedFramework);
+    console.log("filtered", filteredProjects)
+
+    const finalList = selectedFramework === "" ? projects : filteredProjects;
+
 
 
     return (
@@ -13,29 +33,59 @@ function Projects({ projects }) {
             PROJECTS
             <div className='tech_menu'>
                 <ul>
-                    <li>ALL</li>
-                    <li>REACT</li>
+                    <li className='allFrameworks'>
+                        <button className='disabled_link'
+                            onClick={onClickAllFrameworks}
+                            style={{ borderBottom: (selectedFramework !== "") ? 'transparent' : '1px solid rgb(207, 95, 95)' }}>
+                            ALL </button>
+                    </li>
+
+
+                    {filteredFrameworks.map((element, index) => (
+                        <li className='single_framework'
+                            key={index}
+                        >
+                            <button className='disabled_link'
+                                onClick={() => setSelectedFramework(element)}
+                                style={{ borderBottom: (selectedFramework !== element) ? 'transparent' : '1px solid rgb(207, 95, 95)' }}>
+                                {`${element}`} </button>
+                        </li>
+                    ))}
+
                 </ul>
             </div>
             <div className='projects_container'>
-                <div className='single_project' style={{backgroundImage: "url(" + "https://images.unsplash.com/photo-1661956601349-f61c959a8fd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"+")",
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat' }}>
-                    <div>name</div>
-                    <button className='view_btn'>view</button>
-                </div>
+
+                {finalList.map((project, index) => (
+                    <div className='single_project'
+                        style={{
+                            //backgroundImage: "url(" + project.pictureUrl + ")",
+                            backgroundImage: `url("${project.pictureUrl}")`,
+                            backgroundPosition: 'center',
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                        }}
+                        key={index}
+                    >
+                        <div>{project.name}</div>
+                        <div className='view_btn'>view
+                            <a href={project.deployLink}></a>
+                        </div>
+                    </div>
+                ))}
+
+
             </div>
 
 
             <div className='tag_menu'>
                 <div>Tags:</div>
 
-               {tags.map((element) => (
-                   <div div className='single_tag' > {element} </div>
-                ) )}
+                {tags.map((element, index) => (
+                    <div className='single_tag' key={index}> #{element} </div>
+                ))}
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -25,7 +25,7 @@ function App() {
     getData()
   }, [])
 
-  console.log("RR",projects)
+
 
   return (
     <Main projects={projects}></Main> 
