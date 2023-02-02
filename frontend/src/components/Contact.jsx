@@ -13,7 +13,7 @@ function Contact() {
     const MAX_LENGTH = 1000;
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Hello, ${message.userName}! Thank you for your mesage!` );
+        alert(`Hello, ${message.userName}! Thank you for your mesage! I will answer as soon as pissible!` );
     };
 
     const handleChange = (event) => {
@@ -66,7 +66,7 @@ function Contact() {
                         onChange={handleChange}
                     >
                     </input>
-                    <button className='submit_form'
+                    <button className='submit_btn'
                         onClick={handleSubmit}>
                         SEND</button>
                     <span className='btn_span'></span>

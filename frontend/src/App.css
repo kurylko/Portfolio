@@ -300,10 +300,12 @@ body a {
   height: 50px;
 }
 
-.submit_form {
+.submit_btn {
   height: 20px;
   width: 90px;
   background-color: transparent;
+  border: none;
+  border-radius: 0;
 }
 
 .btn_span {

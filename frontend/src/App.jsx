@@ -28,7 +28,7 @@ function App() {
 
 
   return (
-    <Main projects={projects}></Main> 
+    <Main projects={projects}></Main>
   )
 }
 
