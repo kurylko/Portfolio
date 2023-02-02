@@ -1,6 +1,7 @@
 import express from "express";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore/lite";
 import { database } from "./firebase.js";
+import cors from "cors";
 
 
 import dotenv from "dotenv";
@@ -11,6 +12,7 @@ const EXPRESS_PORT = parseInt(process.env.EXPRESS_PORT ?? "5005", 10);
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.listen(EXPRESS_PORT, () => {
   console.log("Express listening on port", EXPRESS_PORT);
