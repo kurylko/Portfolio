@@ -60,17 +60,19 @@ function Projects({ projects = [] }) {
                     <div className='single_project'
                         style={{
                             //backgroundImage: "url(" + project.pictureUrl + ")",
-                            backgroundImage: `url("${project.pictureUrl}")`,
+                            backgroundImage: `url(${project.pictureUrl})`,
                             backgroundPosition: 'center',
                             backgroundSize: 'cover',
-                            backgroundRepeat: 'no-repeat',
+                            position: 'relative',
                         }}
                         key={index}
                     >
-                        <div>{project.name}</div>
-                        <div className='view_btn'>view
-                            <a href={project.deployLink}></a>
-                        </div>
+                        <div style={{position: 'absolute', width: "100%", height: "100%", background:"white", opacity: "0.5"}}></div>
+                        <div className='project_name'>{project.name}</div>
+
+                        <a href={project.deployLink}>
+                            <div className='view_btn'>DEPLOY</div>
+                        </a>
                     </div>
                 ))}
 
