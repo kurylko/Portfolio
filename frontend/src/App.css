@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "Cutive Mono";
+  src: url("https: //fonts.googleapis.com/css?family=Cutive Mono");
+}
+
 #root {
   max-width: 1280px;
+}
+
+body {
+  font-family: 'Cutive Mono';
 }
 
 .main_container {
