@@ -1,6 +1,32 @@
 import '../App.css';
+import { useState } from 'react';
 
 function Contact() {
+
+
+    const [message, setMessage] = useState({
+        userName: "",
+        email: "",
+        userMessage: ""
+    })
+
+    const MAX_LENGTH = 1000;
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert(`Hello, ${message.userName}! Thank you for your mesage!` );
+    };
+
+    const handleChange = (event) => {
+        if (event.target.value.length <= MAX_LENGTH) {
+            const value = event.target.value;
+            console.log('name', event.target.name)
+            setMessage({
+                ...message,
+                [event.target.name]: value
+            });
+        } else alert('Please try <1000 char');
+    };
+
     return (
         <div className='contact'>
             CONTACT
@@ -13,11 +39,36 @@ function Contact() {
                     </div>
                 </div>
 
-                <form className='contact_form'>
-                    <input className='message' type="text" placeholder="Your message"></input>
-                    <input className='name' type="text" placeholder="Your name"></input>
-                    <input className='email' type="text" placeholder="Your email"></input>
-                    <button className='submit_form'>Submit</button>
+                <form className='contact_form' onSubmit={handleSubmit}>
+                    <input className='message'
+                        type="text"
+                        placeholder="Your message"
+                        name='userMessage'
+                        value={message.userMessage}
+                        onChange={handleChange}
+                    >
+
+                    </input>
+                    <input className='name'
+                        type="text"
+                        placeholder="Your name"
+                        name='userName'
+                        value={message.userName}
+                        onChange={handleChange}
+                    >
+
+                    </input>
+                    <input className='email'
+                        type="text"
+                        placeholder="Your email"
+                        name='email'
+                        value={message.email}
+                        onChange={handleChange}
+                    >
+                    </input>
+                    <button className='submit_form'
+                        onClick={handleSubmit}>
+                        SEND</button>
                     <span className='btn_span'></span>
                 </form>
             </div>
