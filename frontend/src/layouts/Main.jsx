@@ -6,7 +6,9 @@ import Contact from '../components/Contact';
 
 
 
-function Main() {
+function Main({projects}) {
+
+
 
     return (
         <div>
@@ -14,7 +16,7 @@ function Main() {
                 <Home />
                 <Navbar />
                 <Stack />
-                <Projects />
+                <Projects projects={projects} />
                 <Contact />
             </div>
         </div>

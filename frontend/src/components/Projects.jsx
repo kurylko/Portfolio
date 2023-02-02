@@ -1,6 +1,13 @@
 import '../App.css';
 
-function Projects() {
+function Projects({ projects }) {
+
+    console.log(projects)
+
+    const tags = projects.map((project) => project.tag);
+    console.log("tags", tags)
+
+
     return (
         <div className='projects'>
             PROJECTS
@@ -19,9 +26,14 @@ function Projects() {
                     <button className='view_btn'>view</button>
                 </div>
             </div>
+
+
             <div className='tag_menu'>
                 <div>Tags:</div>
-                <div className='single_tag'>tag1</div>
+
+               {tags.map((element) => (
+                   <div div className='single_tag' > {element} </div>
+                ) )}
             </div>
         </div>
     )

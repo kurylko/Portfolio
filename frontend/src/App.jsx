@@ -1,30 +1,34 @@
 import './App.css';
 import Main from './layouts/Main';
-import { useFetch } from './hooks/useFetch';
 import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 function App() {
-  const url = `http://localhost:5006/projects`;
-
-  const { response, error, loading } = useFetch(url);
-  console.log(response);
-  
+  const [projects, setProjects] = useState([]);
 
   async function getData() {
     try {
       const response = await axios.get("http://localhost:5006/projects");
-      console.log(response);
+      const allProjects = response.data;
+      console.log("resp:", response, "status:", response.status);
+      setProjects(allProjects)
     }
     catch (error) {
-      console.log(error);
+      console.log("err", error);
     }
+
   };
 
-  console.log(getData());
+  useEffect(() => {
+    getData()
+  }, [])
+
+  console.log("RR",projects)
 
   return (
-      <Main></Main>
+    <Main projects={projects}></Main> 
   )
 }
 
