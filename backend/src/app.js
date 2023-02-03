@@ -49,3 +49,31 @@ const getProjectById = async (
 };
 
 app.get("/projects/:itemId", getProjectById);
+
+
+const createContact = async (
+  req,
+  res
+) => {
+  const contactsCol = collection(database, "contacts");
+  addDoc(contactsCol, req.body).then((doc) => {
+    res.status(201).send(doc.id);
+  })
+    .catch((err) => {
+      console.error(err, "no no no");
+      res.sendStatus(500);
+    });
+};
+
+app.post("/contacts", createContact);
+
+
+
+const getAllContacts = async (req, res) => {
+  const contactsCol = collection(database, "contacts");
+  const contactsSnapshot = await getDocs(contactsCol);
+  const contactsList = contactsSnapshot.docs.map((doc) => doc.data());
+  res.json(contactsList);
+};
+
+app.get("/contacts", getAllContacts);
