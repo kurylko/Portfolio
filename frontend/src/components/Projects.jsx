@@ -1,5 +1,7 @@
 import '../App.css';
 import { useState } from 'react';
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 function Projects({ projects = [] }) {
 
@@ -67,12 +69,30 @@ function Projects({ projects = [] }) {
                         }}
                         key={index}
                     >
-                        <div style={{position: 'absolute', width: "100%", height: "100%", background:"white", opacity: "0.5"}}></div>
+                        <div style={{ position: 'absolute', width: "100%", height: "100%", background: "white", opacity: "0.5" }}></div>
                         <div className='project_name'>{project.name}</div>
 
-                        <a href={project.deployLink}>
-                            <div className='view_btn'>DEPLOY</div>
-                        </a>
+                        <div className='projects_btns'>
+                            <a href={project.deployLink}>
+                                <div className='view_btn'>DEPLOY</div>
+                            </a>
+
+                            <Popup
+                                className="pop_up"
+                                position="center"
+                                trigger={<p className="projects_modal_trigger"> Description </p>}
+                            >
+                                <div className="my_popup_content">
+                                    <div>{project.name}</div>
+                                    <div><img className='small_pr_pic'
+                                        src={project.pictureUrl} alt={project.name}
+                                    >
+                                        </img></div>
+                                    <div>{project.description}</div>
+                                    <div>Features: {project.features}</div>
+                                </div>
+                            </Popup>
+                        </div>
                     </div>
                 ))}
 
@@ -87,6 +107,8 @@ function Projects({ projects = [] }) {
                     <div className='single_tag' key={index}> #{element} </div>
                 ))}
             </div>
+
+
         </div >
     )
 }

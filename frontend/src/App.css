@@ -111,8 +111,8 @@ body {
   width: 100%;
   flex-grow: 1;
   gap: 30px;
-  padding-left: 15px;
-  padding-top: 15px;
+  padding-left: 25px;
+  padding-top: 30px;
 }
 
 .dev_block_back {
@@ -135,7 +135,7 @@ body {
   width: 100%;
   gap: 20px;
   padding-left: 15px;
-  padding-top: 15px;
+  padding-top: 30px;
 }
 
 .dev_block_front {
@@ -161,7 +161,7 @@ body {
   width: 100vw;
   border-bottom: 3px solid rgba(252, 133, 133, 1);
   gap: 20px;
-  padding-top: 20px;
+  padding-top: 30px;
   text-align: center;
 }
 
@@ -231,6 +231,15 @@ body a {
   padding-top: 20px;
 }
 
+
+.projects_btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+  align-items: flex-end;
+}
+
 .view_btn {
   align-self: flex-end;
   margin-left: 260px;
@@ -238,6 +247,32 @@ body a {
   height: 30px;
   color: #020d17;
   border-bottom: 1px solid rgb(207, 95, 95);
+}
+
+.pop_up {
+  z-index: 1;
+  position: absolute;
+}
+
+.projects_modal_trigger {
+  z-index: 1;
+  color: #020d17;
+  border-bottom: 1px solid rgb(207, 95, 95);
+}
+
+.my_popup_content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 300px;
+  width: 600px;
+  gap: 1px;
+}
+
+.small_pr_pic {
+  width: 90%;
+  height: 90%;
+  position: relative;
 }
 
 .tag_menu {
@@ -262,7 +297,7 @@ body a {
   gap: 25px;
   text-align: center;
   border-bottom: 3px solid rgba(252, 133, 133, 1);
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .contact_container {
@@ -294,9 +329,10 @@ body a {
 .contact_form {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
   gap: 10px;
   padding-top: 100px;
+  padding-right: 100px;
 }
 
 .message {
@@ -334,6 +370,9 @@ body a {
   background-color: rgba(207, 203, 203, 1);
   z-index: 100;
   position: fixed;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+
 }
 
 .navbar>ul {
