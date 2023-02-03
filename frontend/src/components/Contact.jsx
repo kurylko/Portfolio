@@ -14,7 +14,7 @@ function Contact() {
     const MAX_LENGTH = 1000;
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Hello, ${message.userName}! Thank you for your mesage! I will answer as soon as pissible!`);
+        alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as pissible!`);
     };
 
     const handleChange = (event) => {

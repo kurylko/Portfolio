@@ -11,7 +11,7 @@ function Main({projects}) {
 
     return (
         <div>
-            <div className="main.container">
+            <div className="main_container">
                 <Home />
                 <Navbar />
                 <Stack />

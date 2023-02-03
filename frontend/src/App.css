@@ -9,14 +9,12 @@
 
 body {
   font-family: 'Cutive Mono';
+  width: 100vw;
 }
 
 .main_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: block;
   width: 100vw;
-  height: fit-content;
 }
 
 /* Home */
@@ -85,6 +83,7 @@ body {
   width: 100vw;
   padding-top: 50px;
   border-bottom: 3px solid rgba(252, 133, 133, 1);
+  margin-top: -50px;
 }
 
 .back_front {
@@ -333,6 +332,8 @@ body a {
   width: 100vw;
   height: 50px;
   background-color: rgba(207, 203, 203, 1);
+  z-index: 100;
+  position: fixed;
 }
 
 .navbar>ul {
