@@ -24,7 +24,6 @@ function Projects({ projects = [] }) {
 
 
     const filteredProjects = projects.filter((project) => project.framework === selectedFramework);
-    console.log("filtered", filteredProjects)
 
     const finalList = selectedFramework === "" ? projects : filteredProjects;
 

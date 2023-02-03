@@ -1,6 +1,7 @@
 import '../App.css';
 import { useState } from 'react';
 import abc from "../../public/abc.png"
+import axios from 'axios';
 
 function Contact() {
 
@@ -11,10 +12,28 @@ function Contact() {
         userMessage: ""
     })
 
+
     const MAX_LENGTH = 1000;
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        const userData = {
+            name: message.userName,
+            email: message.email,
+            message: message.userMessage
+        };
         alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as pissible!`);
+        
+        axios.post("http://localhost:5006/contacts", userData).then((response) => {
+            console.log("status:", response.status);
+            console.log("post data:", response.data);
+            setMessage({
+                userName: "",
+                email: "",
+                userMessage: ""
+            })
+        });
+
     };
 
     const handleChange = (event) => {

@@ -1,5 +1,5 @@
 import express from "express";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore/lite";
+import { collection, doc, getDoc, getDocs, addDoc } from "firebase/firestore/lite";
 import { database } from "./firebase.js";
 import cors from "cors";
 

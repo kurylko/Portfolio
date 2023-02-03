@@ -12,7 +12,6 @@ function App() {
     try {
       const response = await axios.get("http://localhost:5006/projects");
       const allProjects = response.data;
-      console.log("resp:", response, "status:", response.status);
       setProjects(allProjects)
     }
     catch (error) {
