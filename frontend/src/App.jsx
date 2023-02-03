@@ -1,11 +1,33 @@
 import './App.css';
-
 import Main from './layouts/Main';
+import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
+
 
 function App() {
+  const [projects, setProjects] = useState([]);
+
+  async function getData() {
+    try {
+      const response = await axios.get("http://localhost:5006/projects");
+      const allProjects = response.data;
+      setProjects(allProjects)
+    }
+    catch (error) {
+      console.log("err", error);
+    }
+
+  };
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+
 
   return (
-      <Main></Main>
+    <Main projects={projects}></Main>
   )
 }
 

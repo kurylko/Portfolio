@@ -1,6 +1,7 @@
 import '../App.css';
 
 function Stack() {
+    
     return (
         <div className='stack'>
             <div className='back_front'>

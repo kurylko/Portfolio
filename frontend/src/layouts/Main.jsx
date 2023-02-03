@@ -4,15 +4,18 @@ import Stack from '../components/Stack';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 
-function Main() {
+
+
+function Main({projects}) {
+
 
     return (
         <div>
-            <div className="main.container">
+            <div className="main_container">
                 <Home />
                 <Navbar />
                 <Stack />
-                <Projects />
+                <Projects projects={projects}/>
                 <Contact />
             </div>
         </div>
