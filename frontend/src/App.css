@@ -84,6 +84,7 @@ body {
   padding-top: 50px;
   border-bottom: 3px solid rgba(252, 133, 133, 1);
   margin-top: -50px;
+  font-size: 18px;
 }
 
 .back_front {
@@ -390,6 +391,7 @@ body a {
   flex-direction: row;
   gap: 20px;
   list-style: none;
+  padding-bottom: 10px;
 }
 
 .navbar.active {
