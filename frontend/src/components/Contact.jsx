@@ -1,5 +1,6 @@
 import '../App.css';
 import { useState } from 'react';
+import abc from "../../public/abc.png"
 
 function Contact() {
 
@@ -13,7 +14,7 @@ function Contact() {
     const MAX_LENGTH = 1000;
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Hello, ${message.userName}! Thank you for your mesage! I will answer as soon as pissible!` );
+        alert(`Hello, ${message.userName}! Thank you for your mesage! I will answer as soon as pissible!`);
     };
 
     const handleChange = (event) => {
@@ -32,7 +33,14 @@ function Contact() {
             CONTACT
             <div className='contact_container'>
                 <div className='about'>
-                    <div className='contact_pic'>picture</div>
+                    <div className='contact_pic'
+                        style={{
+                            backgroundImage: `url(${abc})`, backgroundSize: "contain",
+                            backgroundPosition: "top",
+                            background: "cover"
+                        }}
+                    >
+                    </div>
                     <div>
                         <p>Collaboration - key for successsful projects.</p>
                         <p> Feel free to reach me on LinkedIn or send a direct message.</p>

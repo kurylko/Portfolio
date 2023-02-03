@@ -1,10 +1,14 @@
 import '../App.css';
 import React from 'react';
+import { useState } from 'react';
 
 function Navbar() {
 
+    const [clickedItem, setClickedItem] = useState();
+
     const handleClickHome = () => {
         document.querySelector('.home').scrollIntoView({ behavior: 'smooth' });
+        setClicked(!clicked)
     };
     const handleClickStack = () => {
         document.querySelector('.stack').scrollIntoView({ behavior: 'smooth' });
