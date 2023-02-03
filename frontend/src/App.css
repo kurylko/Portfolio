@@ -229,6 +229,7 @@ body a {
   z-index: 1;
   padding-left: 15px;
   padding-top: 20px;
+  color: #020d17;
 }
 
 
@@ -266,12 +267,21 @@ body a {
   align-content: center;
   height: 300px;
   width: 600px;
-  gap: 1px;
+  gap: 5px;
+  color: #020d17;
+  margin-left: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+[role='tooltip'].popup-content {
+  width: 500px !important;
+  height: 550px !important;
 }
 
 .small_pr_pic {
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   position: relative;
 }
 

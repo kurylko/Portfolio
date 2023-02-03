@@ -79,7 +79,8 @@ function Projects({ projects = [] }) {
 
                             <Popup
                                 className="pop_up"
-                                position="center"
+                                position="center center"
+                                width="500px"
                                 trigger={<p className="projects_modal_trigger"> Description </p>}
                             >
                                 <div className="my_popup_content">
@@ -87,9 +88,11 @@ function Projects({ projects = [] }) {
                                     <div><img className='small_pr_pic'
                                         src={project.pictureUrl} alt={project.name}
                                     >
-                                        </img></div>
-                                    <div>{project.description}</div>
-                                    <div>Features: {project.features}</div>
+                                    </img></div>
+                                    <div style={{width: "450px"}}>{project.description}</div>
+                                    {! project.features ? null :
+                                        <div>Features: {project.features}</div>}
+                                    <div>Status: {project.status} ({project.year})</div>
                                 </div>
                             </Popup>
                         </div>
