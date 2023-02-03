@@ -88,7 +88,7 @@ function Projects({ projects = [] }) {
                                         src={project.pictureUrl} alt={project.name}
                                     >
                                     </img></div>
-                                    <div style={{width: "450px"}}>{project.description}</div>
+                                    <div style={{width: "450px", paddingBottom: "8px"}}>{project.description}</div>
                                     {! project.features ? null :
                                         <div>Features: {project.features}</div>}
                                     <div>Status: {project.status} ({project.year})</div>
