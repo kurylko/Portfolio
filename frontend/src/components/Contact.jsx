@@ -22,18 +22,21 @@ function Contact() {
             email: message.email,
             message: message.userMessage
         };
-        alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as pissible!`);
-        
+
+
         axios.post("http://localhost:5006/contacts", userData).then((response) => {
-            console.log("status:", response.status);
-            console.log("post data:", response.data);
             setMessage({
                 userName: "",
                 email: "",
                 userMessage: ""
-            })
-        });
+            });
 
+            if (response.data.validationErrors.length ) {
+                console.log("post eror:", response.data.validationErrors[0].message)
+            } else {
+                alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as pissible!`);
+            }
+        });
     };
 
     const handleChange = (event) => {
@@ -95,7 +98,7 @@ function Contact() {
                     </input>
                     <button className='submit_btn'
                         onClick={handleSubmit}>
-                        SEND</button>
+                        Let`s do it!</button>
                     <span className='btn_span'></span>
                 </form>
             </div>
