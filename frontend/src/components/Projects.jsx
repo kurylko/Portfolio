@@ -90,10 +90,11 @@ function Projects({projects = []}) {
                             >
                                 <div className="my_popup_content">
                                     <div>{project.name}</div>
-                                    <div><img className='small_pr_pic'
-                                              src={project.pictureUrl} alt={project.name}
-                                    >
-                                    </img></div>
+                                    <div>
+                                        <img className='small_pr_pic'
+                                             src={project.pictureUrl} alt={project.name}
+                                        >
+                                        </img></div>
                                     <div style={{width: "450px", paddingBottom: "8px"}}>{project.description}</div>
                                     {!project.features ? null :
                                         <div>Features: {project.features}</div>
@@ -104,16 +105,16 @@ function Projects({projects = []}) {
                                             <div>Visit repository</div>
                                         </a>
                                     }
-                                    <a style={{width: "450px"}} href={project.deployLink}>
-                                        <div>Visit web app</div>
-                                    </a>
+                                    {!project.deployLink ? null :
+                                        <a style={{width: "450px"}} href={project.deployLink}>
+                                            <div>Visit web app</div>
+                                        </a>
+                                    }
                                 </div>
                             </Popup>
                         </div>
                     </div>
                 ))}
-
-
             </div>
 
 
