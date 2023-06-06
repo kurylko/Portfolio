@@ -1,9 +1,9 @@
 import '../App.css';
-import { useState } from 'react';
+import {useState} from 'react';
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 
-function Projects({ projects = [] }) {
+function Projects({projects = []}) {
 
     const tags = projects.map((project) => project.tag);
 
@@ -28,7 +28,6 @@ function Projects({ projects = [] }) {
     const finalList = selectedFramework === "" ? projects : filteredProjects;
 
 
-
     return (
         <div className='projects'>
             PROJECTS
@@ -36,9 +35,10 @@ function Projects({ projects = [] }) {
                 <ul>
                     <li className='allFrameworks'>
                         <button className='disabled_link'
-                            onClick={onClickAllFrameworks}
-                            style={{ borderBottom: (selectedFramework !== "") ? 'transparent' : '1px solid rgb(207, 95, 95)' }}>
-                            ALL </button>
+                                onClick={onClickAllFrameworks}
+                                style={{borderBottom: (selectedFramework !== "") ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
+                            ALL
+                        </button>
                     </li>
 
 
@@ -47,8 +47,8 @@ function Projects({ projects = [] }) {
                             key={index}
                         >
                             <button className='disabled_link'
-                                onClick={() => setSelectedFramework(element)}
-                                style={{ borderBottom: (selectedFramework !== element) ? 'transparent' : '1px solid rgb(207, 95, 95)' }}>
+                                    onClick={() => setSelectedFramework(element)}
+                                    style={{borderBottom: (selectedFramework !== element) ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
                                 {`${element}`} </button>
                         </li>
                     ))}
@@ -59,16 +59,22 @@ function Projects({ projects = [] }) {
 
                 {finalList.map((project, index) => (
                     <div className='single_project'
-                        style={{
-                            //backgroundImage: "url(" + project.pictureUrl + ")",
-                            backgroundImage: `url(${project.pictureUrl})`,
-                            backgroundPosition: 'center',
-                            backgroundSize: 'cover',
-                            position: 'relative',
-                        }}
-                        key={index}
+                         style={{
+                             //backgroundImage: "url(" + project.pictureUrl + ")",
+                             backgroundImage: `url(${project.pictureUrl})`,
+                             backgroundPosition: 'center',
+                             backgroundSize: 'cover',
+                             position: 'relative',
+                         }}
+                         key={index}
                     >
-                        <div style={{ position: 'absolute', width: "100%", height: "100%", background: "white", opacity: "0.5" }}></div>
+                        <div style={{
+                            position: 'absolute',
+                            width: "100%",
+                            height: "100%",
+                            background: "white",
+                            opacity: "0.5"
+                        }}></div>
                         <div className='project_name'>{project.name}</div>
 
                         <div className='projects_btns'>
@@ -85,13 +91,22 @@ function Projects({ projects = [] }) {
                                 <div className="my_popup_content">
                                     <div>{project.name}</div>
                                     <div><img className='small_pr_pic'
-                                        src={project.pictureUrl} alt={project.name}
+                                              src={project.pictureUrl} alt={project.name}
                                     >
                                     </img></div>
                                     <div style={{width: "450px", paddingBottom: "8px"}}>{project.description}</div>
-                                    {! project.features ? null :
-                                        <div>Features: {project.features}</div>}
+                                    {!project.features ? null :
+                                        <div>Features: {project.features}</div>
+                                    }
                                     <div>Status: {project.status} ({project.year})</div>
+                                    {!project.repository ? null :
+                                        <a style={{width: "450px"}} href={project.repository}>
+                                            <div>Visit repository</div>
+                                        </a>
+                                    }
+                                    <a style={{width: "450px"}} href={project.deployLink}>
+                                        <div>Visit web app</div>
+                                    </a>
                                 </div>
                             </Popup>
                         </div>
@@ -111,7 +126,7 @@ function Projects({ projects = [] }) {
             </div>
 
 
-        </div >
+        </div>
     )
 }
 

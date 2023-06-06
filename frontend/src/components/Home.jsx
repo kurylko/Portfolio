@@ -3,7 +3,6 @@ import linkedin from "../../public/linkedin.png";
 import gitlab from "../../public/gitlab.png";
 import github from "../../public/github.png";
 import Space from "../../public/Space.mp4"
-import sp from "../../public/sp.mp4"
 
 function Home() {
     return (
@@ -18,7 +17,7 @@ function Home() {
                 <p>Hello,
                     I`m Valeria.</p>
                 <p>I`m a Full Stack Web Developer with marketing background. Creating exiting using experience - my truly passion. </p>
-                <p>Programming Language: JavaScript + TypeScript</p>
+                <p>Programming Languages: JavaScript + TypeScript</p>
             </div>
             <div className='social_links'>
                 <a href="https://www.linkedin.com/in/valeria-kurylko/">

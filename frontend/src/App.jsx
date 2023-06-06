@@ -10,7 +10,7 @@ function App() {
 
   async function getData() {
     try {
-      const response = await axios.get("http://localhost:5006/projects");
+      const response = await axios.get("http://localhost:5005/projects");
       const allProjects = response.data;
       setProjects(allProjects)
     }
