@@ -2,6 +2,9 @@ import '../App.css';
 import {useState} from 'react';
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import Button from '@mui/material/Button';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+
 
 function Projects({projects = []}) {
 
@@ -23,7 +26,7 @@ function Projects({projects = []}) {
     };
 
 
-    const filteredProjects = projects.filter((project) => project.framework === selectedFramework);
+    const filteredProjects = projects.filter((project) => project.framework === selectedFramework && project.isShown === true);
 
     const finalList = selectedFramework === "" ? projects : filteredProjects;
 
@@ -31,30 +34,34 @@ function Projects({projects = []}) {
     return (
         <div className='projects'>
             PROJECTS
-            <div className='tech_menu'>
-                <ul>
-                    <li className='allFrameworks'>
-                        <button className='disabled_link'
-                                onClick={onClickAllFrameworks}
-                                style={{borderBottom: (selectedFramework !== "") ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
-                            ALL
-                        </button>
-                    </li>
-
-
-                    {filteredFrameworks.map((element, index) => (
-                        <li className='single_framework'
-                            key={index}
-                        >
+            <div className='menu-container'>
+                <div className='tech_menu'>
+                    <ul>
+                        <li className='allFrameworks'>
                             <button className='disabled_link'
-                                    onClick={() => setSelectedFramework(element)}
-                                    style={{borderBottom: (selectedFramework !== element) ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
-                                {`${element}`} </button>
+                                    onClick={onClickAllFrameworks}
+                                    style={{borderBottom: (selectedFramework !== "") ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
+                                ALL
+                            </button>
                         </li>
-                    ))}
 
-                </ul>
+
+                        {filteredFrameworks.map((element, index) => (
+                            <li className='single_framework'
+                                key={index}
+                            >
+                                <button className='disabled_link'
+                                        onClick={() => setSelectedFramework(element)}
+                                        style={{borderBottom: (selectedFramework !== element) ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
+                                    {`${element}`} </button>
+                            </li>
+                        ))}
+                    </ul>
+
+                </div>
+                <div className='js-ts-switcher'>JS/TS switcher</div>
             </div>
+
             <div className='projects_container'>
 
                 {finalList.map((project, index) => (
@@ -77,10 +84,13 @@ function Projects({projects = []}) {
                         }}></div>
                         <div className='project_name'>{project.name}</div>
 
+
                         <div className='projects_btns'>
-                            <a href={project.deployLink}>
-                                <div className='view_btn'>DEPLOY</div>
-                            </a>
+                            {!project.deployLink ? null :
+                                <a href={project.deployLink}>
+                                    <div className='view_btn'>DEPLOY</div>
+                                </a>
+                            }
 
                             <Popup
                                 className="pop_up"
@@ -107,7 +117,8 @@ function Projects({projects = []}) {
                                     }
                                     {!project.deployLink ? null :
                                         <a style={{width: "450px"}} href={project.deployLink}>
-                                            <div>Visit web app</div>
+                                            <Button variant="contained" color="secondary">
+                                                <ArrowOutwardIcon/>View site</Button>
                                         </a>
                                     }
                                 </div>
