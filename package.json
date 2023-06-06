@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio web app - Junior Web Developer",
+  "name": "Portfolio web app of Junior Web Developer",
   "version": "0.1.0",
   "description": "Start scripts for a project containing frontend and backend with dev scripts each",
   "scripts": {
@@ -17,7 +17,7 @@
     "fullstack"
   ],
   "author": "Valeriia Kurylko",
-  "license": "MIT",
+  "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.6.0"
   }
