@@ -4,10 +4,7 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import {Switch} from "@mui/material";
-import {createTheme, ThemeProvider} from "@mui/material/styles";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import Switcher from "./Switcher.jsx";
 
 
 function Projects({projects = []}) {
@@ -51,35 +48,6 @@ function Projects({projects = []}) {
         setSelectedLanguage(!selectedLanguage)
         console.log('swithed')
     };
-
-    const theme = createTheme({
-        components: {
-            MuiSwitch: {
-                styleOverrides: {
-                    switchBase: {
-                        // Controls default (unchecked) color for the thumb
-                        color: "rgba(0, 0, 0, 0.8)"
-                    },
-                    colorPrimary: {
-                        "&.Mui-checked": {
-                            // Controls checked color for the thumb
-                            color: "rgba(252, 133, 133, 1)"
-                        }
-                    },
-                    track: {
-                        // Controls default (unchecked) color for the track
-                        opacity: 0.2,
-                        backgroundColor: "rgba(0, 0, 0, 0.8)",
-                        ".Mui-checked.Mui-checked + &": {
-                            // Controls checked color for the track
-                            opacity: 0.7,
-                            backgroundColor: "rgba(252, 133, 133, 0.5)"
-                        }
-                    }
-                }
-            }
-        }
-    });
 
 // Forming final list of projects to render
 
@@ -127,19 +95,11 @@ function Projects({projects = []}) {
 
                 </div>
                 <div className='js-ts-switcher'>
-                    <ThemeProvider theme={theme}>
-                        <FormGroup>
-                            <FormControlLabel
-                                control={
-                                    <Switch
-                                        checked={isChecked}
-                                        onChange={handleChangeLanguage}
-                                    />
-                                }
-                                label={showJs ? 'JS' : 'TS'}
-                            />
-                        </FormGroup>
-                    </ThemeProvider>
+                    <Switcher
+                        isChecked={isChecked}
+                        handleChangeLanguage={handleChangeLanguage}
+                        showJs={showJs}
+                    />
                 </div>
             </div>
 
