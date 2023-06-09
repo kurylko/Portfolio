@@ -40,11 +40,11 @@ function Projects({projects = []}) {
 
 //  Switcher for JS / TS filtration
 
-    const [showJs, setShowJs] = useState(true);
+    const [showjs, setShowjs] = useState(true);
     const [isChecked, setIsChecked] = useState(false);
     const handleChangeLanguage = (event) => {
         setIsChecked(!isChecked)
-        setShowJs(!showJs)
+        setShowjs(!showjs)
         setSelectedLanguage(!selectedLanguage)
         console.log('swithed')
     };
@@ -98,7 +98,7 @@ function Projects({projects = []}) {
                     <Switcher
                         isChecked={isChecked}
                         handleChangeLanguage={handleChangeLanguage}
-                        showJs={showJs}
+                        showjs={showjs}
                     />
                 </div>
             </div>

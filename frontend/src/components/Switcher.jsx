@@ -4,7 +4,7 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 
-const Switcher = ({isChecked, handleChangeLanguage, showJs}) => {
+const Switcher = ({isChecked, handleChangeLanguage, showjs}) => {
 
     const theme = createTheme({
         components: {
@@ -43,10 +43,10 @@ const Switcher = ({isChecked, handleChangeLanguage, showJs}) => {
                         <Switch
                             checked={isChecked}
                             onChange={handleChangeLanguage}
-                            showJs={showJs}
+                            showjs={showjs}
                         />
                     }
-                    label={showJs ? 'JS' : 'TS'}
+                    label={showjs ? 'JS' : 'TS'}
                 />
             </FormGroup>
         </ThemeProvider>
