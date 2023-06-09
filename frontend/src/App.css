@@ -311,9 +311,14 @@ body a {
 .tag_menu {
   display: flex;
   flex-direction: row;
-  height: 20px;
-  gap: 10px;
   padding-left: 40px;
+}
+
+.tags-list {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 100%;
 }
 
 .single_tag {

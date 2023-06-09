@@ -13,7 +13,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 function Projects({projects = []}) {
     const [selectedLanguage, setSelectedLanguage] = useState(false);
 
-  // Tags filtering menu
+    // Tags filtering menu
     const filteredTags = [];
 
     projects.filter((element) => element.isShown === true).forEach(element => {
@@ -34,7 +34,6 @@ function Projects({projects = []}) {
             filteredFrameworks.push(element.framework || '')
         }
     });
-
 
     const [selectedFramework, setSelectedFramework] = useState("");
 
@@ -212,11 +211,14 @@ function Projects({projects = []}) {
 
 
             <div className='tag_menu'>
-                <div>Tags:</div>
-
-                {filteredTags.map((element, index) => (
-                    <div className='single_tag' key={index}> #{element} </div>
-                ))}
+                <ul className='tags-list'>
+                    {filteredTags.map((element, index) => (
+                        <li className='single_tag'>
+                            <button
+                                onClick={() => setSelectedTag(element)}> {`#${element}`} </button>
+                        </li>
+                    ))}
+                </ul>
             </div>
 
 
