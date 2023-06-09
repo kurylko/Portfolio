@@ -4,3 +4,4 @@
 !**/.env*.sample
 **/dist
 **/build
+.idea/

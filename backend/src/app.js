@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   res.send("Hello from Express!");
 });
 
-
+// GET PROJECTS
 const getAllProjects = async (req, res) => {
   const projectCol = collection(database, "projects");
   const projectsSnapshot = await getDocs(projectCol);
@@ -50,6 +50,34 @@ const getProjectById = async (
 
 app.get("/projects/:itemId", getProjectById);
 
+// POST MESSAGE 
+
+const validateContact = (req, res, next) => {
+  const { email, name, message } = req.body;
+  const errors = [];
+
+  const emailRegex = /[a-z0-9._]+@[a-z0-9-]+\.[a-z]{2,3}/;
+
+  if (message == null) {
+    errors.push({ field: "message", message: "Please type your message" });
+  }
+  if (name == null) {
+    errors.push({ field: "name", message: "Please type your name" });
+  }
+  if (email == null) {
+    errors.push({ field: "name", message: "And what is your email?" });
+  }
+  if (!emailRegex.test(email)) {
+    errors.push({ field: 'email', message: 'Invalid email' });
+  }
+
+  if (errors.length) {
+    res.status(422).json({ validationErrors: errors });
+  } else {
+    next();
+  }
+};
+
 
 const createContact = async (
   req,
@@ -65,7 +93,7 @@ const createContact = async (
     });
 };
 
-app.post("/contacts", createContact);
+app.post("/contacts", validateContact, createContact);
 
 
 
