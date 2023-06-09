@@ -13,6 +13,11 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 function Projects({projects = []}) {
 
     const tags = projects.map((project) => project.tag);
+    const [selectedTag, setSelectedTag] = useState(false);
+
+    const [selectedLanguage, setSelectedLanguage] = useState(false);
+
+    // Frameworks filtering menu
 
     const filteredFrameworks = [];
 
@@ -27,8 +32,8 @@ function Projects({projects = []}) {
 
     const onClickAllFrameworks = () => {
         setSelectedFramework("");
-
     };
+
 //  Switcher for JS / TS filtration
 
     const [showJs, setShowJs] = useState(true);
@@ -36,6 +41,7 @@ function Projects({projects = []}) {
     const handleChangeLanguage = (event) => {
         setIsChecked(!isChecked)
         setShowJs(!showJs)
+        setSelectedLanguage(!selectedLanguage)
         console.log('swithed')
     };
 
@@ -68,10 +74,23 @@ function Projects({projects = []}) {
         }
     });
 
+// Forming final list of projects to render
 
-    const filteredProjects = projects.filter((project) => project.framework === selectedFramework && project.isShown === true);
+    const filteredProjects = projects.filter((project) => {
+        let isMatchedByVisibility = project.isShown === true;
+        let isMatchedByFramework = project.framework === selectedFramework || !selectedFramework;
+        let isMatchedByLanguage = project.language === selectedLanguage || !selectedLanguage;
+        let isMatchedByTag = project.tag === selectedTag || !selectedTag;
 
-    const finalList = selectedFramework === "" ? projects : filteredProjects;
+        return (
+            isMatchedByVisibility &&
+            isMatchedByFramework &&
+            isMatchedByLanguage &&
+            isMatchedByTag
+        )
+    });
+
+    const finalList = filteredProjects;
 
 
     return (
