@@ -2,9 +2,10 @@ import '../App.css';
 import {useState} from 'react';
 import abc from "../../public/abc.png"
 import axios from 'axios';
+import Button from '@mui/material/Button';
 
 function Contact() {
-
+    const linkeDnLink = <a href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn </a>;
 
     const [message, setMessage] = useState({
         userName: "",
@@ -65,10 +66,7 @@ function Contact() {
                     </div>
                     <div>
                         <p>Collaboration - key for successsful projects.</p>
-                        <p> `Feel free to reach me on
-                            <a href="https://www.linkedin.com/in/valeria-kurylko/">
-                                LinkedIn </a>
-                             or send a direct message`.</p>
+                        <p>Feel free to reach me on {linkeDnLink} or send a direct message.</p>
                     </div>
                 </div>
 
@@ -99,10 +97,9 @@ function Contact() {
                            onChange={handleChange}
                     >
                     </input>
-                    <button className='submit_btn'
-                            onClick={handleSubmit}>
+                    <Button className='submit_btn' variant="text" color="secondary" onClick={handleSubmit}>
                         Let`s do it!
-                    </button>
+                    </Button>
                     <span className='btn_span'></span>
                 </form>
             </div>
