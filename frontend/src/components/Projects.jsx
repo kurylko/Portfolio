@@ -42,7 +42,6 @@ function Projects({projects = []}) {
     const [isChecked, setIsChecked] = useState(false);
     const handleChangeLanguage = (event) => {
         setIsChecked(!isChecked)
-        console.log('swithed')
     };
 
 // Forming final list of projects to render

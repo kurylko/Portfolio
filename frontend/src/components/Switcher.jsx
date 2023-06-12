@@ -2,6 +2,7 @@ import {Switch} from "@mui/material";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import {Grid} from '@mui/material';
 
 
 const Switcher = ({isChecked, handleChangeLanguage}) => {
@@ -37,17 +38,16 @@ const Switcher = ({isChecked, handleChangeLanguage}) => {
 
     return (
         <ThemeProvider theme={theme}>
-            <FormGroup>
-                <FormControlLabel
-                    control={
-                        <Switch
-                            checked={isChecked}
-                            onChange={handleChangeLanguage}
-                        />
-                    }
-                    label={isChecked ? 'JS' : 'TS'}
-                />
-            </FormGroup>
+            <Grid component="label" container alignItems="center" spacing={1}>
+                <Grid item fontWeight={!isChecked ? 'bold' : 'light'}>JS</Grid>
+                <Grid item>
+                    <Switch
+                        checked={isChecked}
+                        onChange={handleChangeLanguage}
+                    />
+                </Grid>
+                <Grid item fontWeight={!isChecked ? 'light' : 'bold'}>TS</Grid>
+            </Grid>
         </ThemeProvider>
     )
 }
