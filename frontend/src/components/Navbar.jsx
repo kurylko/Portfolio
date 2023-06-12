@@ -1,36 +1,18 @@
 import '../App.css';
 import React from 'react';
-import { useState } from 'react';
+import {NavLink} from "react-router-dom";
 
 function Navbar() {
 
-    const [clickedItem, setClickedItem] = useState();
-
-    const handleClickHome = () => {
-        document.querySelector('.home').scrollIntoView({ behavior: 'smooth' });
-        setClicked(!clicked)
-    };
-    const handleClickStack = () => {
-        document.querySelector('.stack').scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const handleClickProjects = () => {
-        document.querySelector('.projects').scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const handleClickContact = () => {
-        document.querySelector('.contact').scrollIntoView({ behavior: 'smooth' });
-    };
-
     return (
-        <div className='navbar'>
+        <nav className='navbar'>
             <ul>
-                <li onClick={handleClickHome}>Home</li>
-                <li onClick={handleClickStack}>Stack</li>
-                <li onClick={handleClickProjects}>Projects</li>
-                <li onClick={handleClickContact}>Contact</li>
+                <li><NavLink to='/'>Home</NavLink></li>
+                <li><NavLink to='/stack'>Stack</NavLink></li>
+                <li><NavLink to='/projects'>Projects</NavLink></li>
+                <li><NavLink to='/contact'>Contact</NavLink></li>
             </ul>
-        </div>
+        </nav>
     )
 }
 
