@@ -10,14 +10,12 @@ function Main({projects}) {
 
 
     return (
-        <div>
-            <div className="main_container">
-                <Home />
-                <Navbar />
-                <Stack />
-                <Projects projects={projects}/>
-                <Contact />
-            </div>
+        <div className="main_container">
+            <Home />
+            <Navbar />
+            <Stack />
+            <Projects projects={projects}/>
+            <Contact />
         </div>
     )
 }
