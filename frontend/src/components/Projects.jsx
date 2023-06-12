@@ -8,7 +8,6 @@ import Switcher from "./Switcher.jsx";
 
 
 function Projects({projects = []}) {
-    const [selectedLanguage, setSelectedLanguage] = useState(false);
 
     // Tags filtering menu
     const filteredTags = [];
@@ -40,12 +39,9 @@ function Projects({projects = []}) {
 
 //  Switcher for JS / TS filtration
 
-    const [showjs, setShowjs] = useState(true);
     const [isChecked, setIsChecked] = useState(false);
     const handleChangeLanguage = (event) => {
         setIsChecked(!isChecked)
-        setShowjs(!showjs)
-        setSelectedLanguage(!selectedLanguage)
         console.log('swithed')
     };
 
@@ -54,7 +50,7 @@ function Projects({projects = []}) {
     const filteredProjects = projects.filter((project) => {
         let isMatchedByVisibility = project.isShown === true;
         let isMatchedByFramework = project.framework === selectedFramework || !selectedFramework;
-        let isMatchedByLanguage = project.language === selectedLanguage || !selectedLanguage;
+        let isMatchedByLanguage = project.language === 'TypeScript' && isChecked || project.language !== 'TypeScript' && !isChecked;
         let isMatchedByTag = project.tag === selectedTag || !selectedTag;
 
         return (
@@ -98,7 +94,6 @@ function Projects({projects = []}) {
                     <Switcher
                         isChecked={isChecked}
                         handleChangeLanguage={handleChangeLanguage}
-                        showjs={showjs}
                     />
                 </div>
             </div>
