@@ -106,6 +106,7 @@ function Projects({projects = []}) {
 
                 {finalList.map((project, index) => (
                     <div className='single_project'
+                         key={index}
                          style={{
                              //backgroundImage: "url(" + project.pictureUrl + ")",
                              backgroundImage: `url(${project.pictureUrl})`,
@@ -113,9 +114,8 @@ function Projects({projects = []}) {
                              backgroundSize: 'cover',
                              position: 'relative',
                          }}
-                         key={index}
                     >
-                        <div className= 'project_pic'></div>
+                        <div className= 'project_pic_cover'></div>
                         <div className='project_name'>{project.name}</div>
 
 
