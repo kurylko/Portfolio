@@ -65,7 +65,7 @@ function Contact() {
                     >
                     </div>
                     <div>
-                        <p>Collaboration - key for successsful projects.</p>
+                        <p>Collaboration - key for successful projects.</p>
                         <p>Feel free to reach me on {linkeDnLink} or send a direct message.</p>
                     </div>
                 </div>
