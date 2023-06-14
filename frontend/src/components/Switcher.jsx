@@ -1,7 +1,5 @@
 import {Switch} from "@mui/material";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import {Grid} from '@mui/material';
 
 

@@ -5,6 +5,7 @@ import "reactjs-popup/dist/index.css";
 import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
+import CButton from "./CButton.jsx";
 
 
 function Projects({projects = []}) {
@@ -62,7 +63,6 @@ function Projects({projects = []}) {
 
     const finalList = filteredProjects;
 
-
     return (
         <div className='projects'>
             PROJECTS
@@ -115,8 +115,8 @@ function Projects({projects = []}) {
                         <div className='projects_buttons'>
                             {!project.deployLink ? null :
                                 <a href={project.deployLink}>
-                                    <Button className='view_btn' variant="outlined" color="secondary">
-                                        <ArrowOutwardIcon/></Button>
+                                    <CButton className='view_btn' variant="outlined" color="secondary">
+                                        <ArrowOutwardIcon/></CButton>
                                 </a>
                             }
 
@@ -145,8 +145,8 @@ function Projects({projects = []}) {
                                     }
                                     {!project.deployLink ? null :
                                         <a style={{width: "450px"}} href={project.deployLink}>
-                                            <Button variant="contained" color="secondary">
-                                                <ArrowOutwardIcon/>View site</Button>
+                                            <CButton variant='contained' color='primary'>
+                                                <ArrowOutwardIcon/>View site</CButton>
                                         </a>
                                     }
                                 </div>
@@ -155,7 +155,6 @@ function Projects({projects = []}) {
                     </div>
                 ))}
             </div>
-
 
             <div className='tag_menu'>
                 <ul className='tags-list'>
