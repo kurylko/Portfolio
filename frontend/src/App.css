@@ -250,6 +250,9 @@ body a {
     flex-direction: row;
     height: 250px;
     width: 500px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
 
 .single_project > a {
@@ -265,19 +268,23 @@ body a {
 }
 
 .project_name {
+    width: 100%;
     z-index: 1;
     padding-left: 15px;
     padding-top: 20px;
     color: #020d17;
+    text-align: left;
 }
 
 
-.projects_btns {
+.projects_buttons {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     z-index: 1;
     align-items: flex-end;
+    width: 80%;
+    margin: 0.6rem;
 }
 
 .view_btn {

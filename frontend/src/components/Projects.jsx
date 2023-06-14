@@ -5,8 +5,6 @@ import "reactjs-popup/dist/index.css";
 import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
-import {Checkbox} from "@mui/material";
-import FormControlLabel from "@mui/material/FormControlLabel";
 
 
 function Projects({projects = []}) {
@@ -45,7 +43,6 @@ function Projects({projects = []}) {
     const handleChangeLanguage = (event) => {
         setIsChecked(!isChecked)
     };
-//
 
 // Forming final list of projects to render
 
@@ -108,21 +105,18 @@ function Projects({projects = []}) {
                     <div className='single_project'
                          key={index}
                          style={{
-                             //backgroundImage: "url(" + project.pictureUrl + ")",
-                             backgroundImage: `url(${project.pictureUrl})`,
-                             backgroundPosition: 'center',
-                             backgroundSize: 'cover',
-                             position: 'relative',
+                             backgroundImage: `url(${project.pictureUrl})`
                          }}
                     >
-                        <div className= 'project_pic_cover'></div>
+                        <div className='project_pic_cover'></div>
                         <div className='project_name'>{project.name}</div>
 
 
-                        <div className='projects_btns'>
+                        <div className='projects_buttons'>
                             {!project.deployLink ? null :
                                 <a href={project.deployLink}>
-                                    <div className='view_btn'>DEPLOY</div>
+                                    <Button className='view_btn' variant="outlined" color="secondary">
+                                        <ArrowOutwardIcon/></Button>
                                 </a>
                             }
 
@@ -130,7 +124,7 @@ function Projects({projects = []}) {
                                 className="pop_up"
                                 position="center center"
                                 width="500px"
-                                trigger={<p className="projects_modal_trigger"> Description </p>}
+                                trigger={<p className="projects_modal_trigger"> DESCRIPTION </p>}
                             >
                                 <div className="my_popup_content">
                                     <div>{project.name}</div>
