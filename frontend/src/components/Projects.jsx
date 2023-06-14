@@ -5,6 +5,8 @@ import "reactjs-popup/dist/index.css";
 import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
+import {Checkbox} from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 
 function Projects({projects = []}) {
@@ -43,6 +45,7 @@ function Projects({projects = []}) {
     const handleChangeLanguage = (event) => {
         setIsChecked(!isChecked)
     };
+//
 
 // Forming final list of projects to render
 
@@ -95,6 +98,8 @@ function Projects({projects = []}) {
                         handleChangeLanguage={handleChangeLanguage}
                     />
                 </div>
+
+
             </div>
 
             <div className='projects_container'>
@@ -110,13 +115,7 @@ function Projects({projects = []}) {
                          }}
                          key={index}
                     >
-                        <div style={{
-                            position: 'absolute',
-                            width: "100%",
-                            height: "100%",
-                            background: "white",
-                            opacity: "0.5"
-                        }}></div>
+                        <div className= 'project_pic'></div>
                         <div className='project_name'>{project.name}</div>
 
 

@@ -6,7 +6,6 @@ import {FIRST_SECTION_HEIGHT} from "../consts.js";
 function Navbar() {
     const [isFirstSectionScrolledDown, setIsFirstSectionScrolledDown] = useState(false);
     const handleScroll = () => {
-        console.log('--', window.scrollY)
         setIsFirstSectionScrolledDown(window.scrollY > FIRST_SECTION_HEIGHT)
     }
     useLayoutEffect(() => {
