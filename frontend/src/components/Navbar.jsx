@@ -16,10 +16,10 @@ function Navbar() {
     return (
         <nav className={`navbar ${isFirstSectionScrolledDown && 'nav-fixed'}`}>
             <ul>
-                <li><NavLink to='/'>Home</NavLink></li>
-                <li><NavLink to='/stack'>Stack</NavLink></li>
-                <li><NavLink to='/projects'>Projects</NavLink></li>
-                <li><NavLink to='/contact'>Contact</NavLink></li>
+                <li><NavLink to='/'>HOME</NavLink></li>
+                <li><NavLink to='/stack'>STACK</NavLink></li>
+                <li><NavLink to='/projects'>PROJECTS</NavLink></li>
+                <li><NavLink to='/contact'>CONTACT</NavLink></li>
             </ul>
         </nav>
     )
