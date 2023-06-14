@@ -70,9 +70,8 @@ function Projects({projects = []}) {
                 <div className='tech_menu'>
                     <ul>
                         <li className='allFrameworks'>
-                            <button className='disabled_link'
-                                    onClick={onClickAllFrameworks}
-                                    style={{borderBottom: (selectedFramework !== "") ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
+                            <button className='plain-button-with-underline'
+                            onClick={onClickAllFrameworks}>
                                 ALL
                             </button>
                         </li>
@@ -80,9 +79,9 @@ function Projects({projects = []}) {
                             <li className='single_framework'
                                 key={index}
                             >
-                                <button className='disabled_link'
+                                <button className='plain-button-with-underline'
                                         onClick={() => setSelectedFramework(element)}
-                                        style={{borderBottom: (selectedFramework !== element) ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
+                                      >
                                     {`${element}`} </button>
                             </li>
                         ))}
@@ -124,7 +123,7 @@ function Projects({projects = []}) {
                                 className="pop_up"
                                 position="center center"
                                 width="500px"
-                                trigger={<p className="projects_modal_trigger"> DESCRIPTION </p>}
+                                trigger={<p className="plain-button-with-underline"> DESCRIPTION </p>}
                             >
                                 <div className="my_popup_content">
                                     <div>{project.name}</div>
