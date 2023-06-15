@@ -4,15 +4,25 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import {Switch} from "@mui/material";
-import {createTheme, ThemeProvider} from "@mui/material/styles";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import Switcher from "./Switcher.jsx";
+import CButton from "./CButton.jsx";
 
 
 function Projects({projects = []}) {
 
-    const tags = projects.map((project) => project.tag);
+    // Tags filtering menu
+    const filteredTags = [];
+
+    projects.filter((element) => element.isShown === true).forEach(element => {
+        if (!filteredTags.find(e => e === element.tag)) {
+            filteredTags.push(element.tag || '')
+        }
+    });
+
+    const [selectedTag, setSelectedTag] = useState("");
+
+
+    // Frameworks filtering menu
 
     const filteredFrameworks = [];
 
@@ -22,57 +32,36 @@ function Projects({projects = []}) {
         }
     });
 
-
     const [selectedFramework, setSelectedFramework] = useState("");
 
     const onClickAllFrameworks = () => {
         setSelectedFramework("");
-
     };
+
 //  Switcher for JS / TS filtration
 
-    const [showJs, setShowJs] = useState(true);
     const [isChecked, setIsChecked] = useState(false);
     const handleChangeLanguage = (event) => {
         setIsChecked(!isChecked)
-        setShowJs(!showJs)
-        console.log('swithed')
     };
 
-    const theme = createTheme({
-        components: {
-            MuiSwitch: {
-                styleOverrides: {
-                    switchBase: {
-                        // Controls default (unchecked) color for the thumb
-                        color: "rgba(0, 0, 0, 0.8)"
-                    },
-                    colorPrimary: {
-                        "&.Mui-checked": {
-                            // Controls checked color for the thumb
-                            color: "rgba(252, 133, 133, 1)"
-                        }
-                    },
-                    track: {
-                        // Controls default (unchecked) color for the track
-                        opacity: 0.2,
-                        backgroundColor: "rgba(0, 0, 0, 0.8)",
-                        ".Mui-checked.Mui-checked + &": {
-                            // Controls checked color for the track
-                            opacity: 0.7,
-                            backgroundColor: "rgba(252, 133, 133, 0.5)"
-                        }
-                    }
-                }
-            }
-        }
+// Forming final list of projects to render
+
+    const filteredProjects = projects.filter((project) => {
+        let isMatchedByVisibility = project.isShown === true;
+        let isMatchedByFramework = project.framework === selectedFramework || !selectedFramework;
+        let isMatchedByLanguage = project.language === 'TypeScript' && isChecked || project.language !== 'TypeScript' && !isChecked;
+        let isMatchedByTag = project.tag === selectedTag || !selectedTag;
+
+        return (
+            isMatchedByVisibility &&
+            isMatchedByFramework &&
+            isMatchedByLanguage &&
+            isMatchedByTag
+        )
     });
 
-
-    const filteredProjects = projects.filter((project) => project.framework === selectedFramework && project.isShown === true);
-
-    const finalList = selectedFramework === "" ? projects : filteredProjects;
-
+    const finalList = filteredProjects;
 
     return (
         <div className='projects'>
@@ -81,9 +70,8 @@ function Projects({projects = []}) {
                 <div className='tech_menu'>
                     <ul>
                         <li className='allFrameworks'>
-                            <button className='disabled_link'
-                                    onClick={onClickAllFrameworks}
-                                    style={{borderBottom: (selectedFramework !== "") ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
+                            <button className='plain-button-with-underline'
+                            onClick={onClickAllFrameworks}>
                                 ALL
                             </button>
                         </li>
@@ -91,9 +79,9 @@ function Projects({projects = []}) {
                             <li className='single_framework'
                                 key={index}
                             >
-                                <button className='disabled_link'
+                                <button className='plain-button-with-underline'
                                         onClick={() => setSelectedFramework(element)}
-                                        style={{borderBottom: (selectedFramework !== element) ? 'transparent' : '1px solid rgb(207, 95, 95)'}}>
+                                      >
                                     {`${element}`} </button>
                             </li>
                         ))}
@@ -101,49 +89,33 @@ function Projects({projects = []}) {
 
                 </div>
                 <div className='js-ts-switcher'>
-                    <ThemeProvider theme={theme}>
-                        <FormGroup>
-                            <FormControlLabel
-                                control={
-                                    <Switch
-                                        checked={isChecked}
-                                        onChange={handleChangeLanguage}
-                                    />
-                                }
-                                label={showJs ? 'JS' : 'TS'}
-                            />
-                        </FormGroup>
-                    </ThemeProvider>
+                    <Switcher
+                        isChecked={isChecked}
+                        handleChangeLanguage={handleChangeLanguage}
+                    />
                 </div>
+
+
             </div>
 
             <div className='projects_container'>
 
                 {finalList.map((project, index) => (
                     <div className='single_project'
-                         style={{
-                             //backgroundImage: "url(" + project.pictureUrl + ")",
-                             backgroundImage: `url(${project.pictureUrl})`,
-                             backgroundPosition: 'center',
-                             backgroundSize: 'cover',
-                             position: 'relative',
-                         }}
                          key={index}
+                         style={{
+                             backgroundImage: `url(${project.pictureUrl})`
+                         }}
                     >
-                        <div style={{
-                            position: 'absolute',
-                            width: "100%",
-                            height: "100%",
-                            background: "white",
-                            opacity: "0.5"
-                        }}></div>
+                        <div className='project_pic_cover'></div>
                         <div className='project_name'>{project.name}</div>
 
 
-                        <div className='projects_btns'>
+                        <div className='projects_buttons'>
                             {!project.deployLink ? null :
                                 <a href={project.deployLink}>
-                                    <div className='view_btn'>DEPLOY</div>
+                                    <CButton className='view_btn' variant="outlined" color="secondary">
+                                        <ArrowOutwardIcon/></CButton>
                                 </a>
                             }
 
@@ -151,7 +123,7 @@ function Projects({projects = []}) {
                                 className="pop_up"
                                 position="center center"
                                 width="500px"
-                                trigger={<p className="projects_modal_trigger"> Description </p>}
+                                trigger={<p className="plain-button-with-underline"> DESCRIPTION </p>}
                             >
                                 <div className="my_popup_content">
                                     <div>{project.name}</div>
@@ -172,8 +144,8 @@ function Projects({projects = []}) {
                                     }
                                     {!project.deployLink ? null :
                                         <a style={{width: "450px"}} href={project.deployLink}>
-                                            <Button variant="contained" color="secondary">
-                                                <ArrowOutwardIcon/>View site</Button>
+                                            <CButton variant='contained' color='primary'>
+                                                <ArrowOutwardIcon/>View site</CButton>
                                         </a>
                                     }
                                 </div>
@@ -183,13 +155,15 @@ function Projects({projects = []}) {
                 ))}
             </div>
 
-
             <div className='tag_menu'>
-                <div>Tags:</div>
-
-                {tags.map((element, index) => (
-                    <div className='single_tag' key={index}> #{element} </div>
-                ))}
+                <ul className='tags-list'>
+                    {filteredTags.map((element, index) => (
+                        <li className='single_tag'>
+                            <button
+                                onClick={() => setSelectedTag(element)}> {`#${element}`} </button>
+                        </li>
+                    ))}
+                </ul>
             </div>
 
 

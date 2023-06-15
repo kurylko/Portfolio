@@ -2,7 +2,7 @@ import '../App.css';
 import {useState} from 'react';
 import abc from "../../public/abc.png"
 import axios from 'axios';
-import Button from '@mui/material/Button';
+import CButton from "./CButton.jsx";
 
 function Contact() {
     const linkeDnLink = <a href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn </a>;
@@ -33,9 +33,9 @@ function Contact() {
             });
 
             if (response.data.validationErrors.length) {
-                console.log("post eror:", response.data.validationErrors[0].message)
+                console.log("post error:", response.data.validationErrors[0].message)
             } else {
-                alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as pissible!`);
+                alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as possible!`);
             }
         });
     };
@@ -65,7 +65,7 @@ function Contact() {
                     >
                     </div>
                     <div>
-                        <p>Collaboration - key for successsful projects.</p>
+                        <p>Collaboration - key for successful projects.</p>
                         <p>Feel free to reach me on {linkeDnLink} or send a direct message.</p>
                     </div>
                 </div>
@@ -97,10 +97,9 @@ function Contact() {
                            onChange={handleChange}
                     >
                     </input>
-                    <Button className='submit_btn' variant="text" color="secondary" onClick={handleSubmit}>
-                        Let`s do it!
-                    </Button>
-                    <span className='btn_span'></span>
+                    <CButton className='plain-button-with-underline' color="secondary" onClick={handleSubmit}>
+                        Let's do it!
+                    </CButton>
                 </form>
             </div>
         </div>

@@ -3,6 +3,7 @@ import linkedin from "../../public/linkedin.png";
 import gitlab from "../../public/gitlab.png";
 import github from "../../public/github.png";
 import Space from "../../public/Space.mp4"
+import {HOME_DESC_1, HOME_DESC_2} from "../consts.js";
 
 function Home() {
     return (
@@ -15,10 +16,8 @@ function Home() {
 
             <div className='home-objects'>
                 <div className='home_desc'>
-                    <p>Hello,
-                        I'm Valeria.</p>
-                    <p>I am a Full Stack Web Developer with marketing background. Creating exiting user experience - my
-                        truly passion. </p>
+                    <pre>{HOME_DESC_1}</pre>
+                    <pre>{HOME_DESC_2}</pre>
                 </div>
                 <div className='social_links'>
                     <a href="https://www.linkedin.com/in/valeria-kurylko/">

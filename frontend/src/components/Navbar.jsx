@@ -1,36 +1,27 @@
 import '../App.css';
-import React from 'react';
-import { useState } from 'react';
+import React, {useLayoutEffect, useState} from 'react';
+import {NavLink} from "react-router-dom";
+import {FIRST_SECTION_HEIGHT} from "../consts.js";
 
 function Navbar() {
-
-    const [clickedItem, setClickedItem] = useState();
-
-    const handleClickHome = () => {
-        document.querySelector('.home').scrollIntoView({ behavior: 'smooth' });
-        setClicked(!clicked)
-    };
-    const handleClickStack = () => {
-        document.querySelector('.stack').scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const handleClickProjects = () => {
-        document.querySelector('.projects').scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const handleClickContact = () => {
-        document.querySelector('.contact').scrollIntoView({ behavior: 'smooth' });
-    };
+    const [isFirstSectionScrolledDown, setIsFirstSectionScrolledDown] = useState(false);
+    const handleScroll = () => {
+        setIsFirstSectionScrolledDown(window.scrollY > FIRST_SECTION_HEIGHT)
+    }
+    useLayoutEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    })
 
     return (
-        <div className='navbar'>
+        <nav className={`navbar ${isFirstSectionScrolledDown && 'nav-fixed'}`}>
             <ul>
-                <li onClick={handleClickHome}>Home</li>
-                <li onClick={handleClickStack}>Stack</li>
-                <li onClick={handleClickProjects}>Projects</li>
-                <li onClick={handleClickContact}>Contact</li>
+                <li><NavLink to='/'>HOME</NavLink></li>
+                <li><NavLink to='/stack'>STACK</NavLink></li>
+                <li><NavLink to='/projects'>PROJECTS</NavLink></li>
+                <li><NavLink to='/contact'>CONTACT</NavLink></li>
             </ul>
-        </div>
+        </nav>
     )
 }
 
