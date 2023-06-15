@@ -5,6 +5,15 @@
 
 #root {
     max-width: 1280px;
+    font-family: "Cutive Mono";
+}
+
+:root {
+    --primary-dark: #233142;
+    --primary-blue: #455d7a;
+    --primary-red: #f95959;
+    --primary-red-opacity: rgba(249, 89, 89, 0.5);
+    --primary-light-grey: #e3e3e3;
 }
 
 *:before,
@@ -34,7 +43,7 @@ a:active {
 a:after {
     content: '';
     position: absolute;
-    background-color: rgba(252, 133, 133, 0.8);
+    background-color: var(--primary-red-opacity);
     height: 0.08rem;
     width: 0;
     left: 0;
@@ -60,7 +69,7 @@ a:hover:after {
 
 .plain-button-with-underline:before {
     content: '';
-    border-bottom: 1px solid rgba(252, 133, 133, 0.8);
+    border-bottom: 1px solid var(--primary-red-opacity);
     padding: 0;
     position: absolute;
     bottom: 0;
