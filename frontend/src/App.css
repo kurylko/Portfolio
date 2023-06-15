@@ -435,15 +435,13 @@ body a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 25px;
-    text-align: center;
     padding-top: 2rem;
+    height: fit-content;
 }
 
 .contact_container {
     display: flex;
     flex-direction: row;
-    height: 100vh;
     padding-left: 40px;
     padding-right: 40px;
 }
@@ -505,7 +503,7 @@ body a {
     position: absolute;
     width: 100vw;
     height: 3rem;
-    background-color: rgba(207, 203, 203);
+    background-color: var(--primary-light-grey);
     z-index: 2;
 }
 
@@ -525,3 +523,24 @@ body a {
     top: 0;
 }
 
+
+.waves{
+    width: 100vw;
+}
+
+.final-wave {
+    position: absolute;
+}
+
+.final-wave-2 {
+    position: absolute;
+    margin-top: 0.07rem;
+}
+.final-wave-3 {
+    position: absolute;
+    margin-top: 1rem;
+}
+.final-wave-4{
+    position: absolute;
+    margin-top: 1.05rem;
+}
