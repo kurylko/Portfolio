@@ -36,10 +36,16 @@ a {
     color: #020d17;
 }
 
+a:hover {
+    color: var(--primary-blue) !important;
+}
+
+a.active {
+    color: var(--primary-blue);
+}
 
 a:active {
     width: 0;
-    color: var(--primary-blue);
 }
 
 a:after {
@@ -145,7 +151,7 @@ a:hover:after {
     margin: 0;
 }
 
-.home-buttons{
+.home-buttons {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -312,7 +318,7 @@ body a {
     width: 90%;
     min-height: 30rem;
     gap: 18px;
-    padding:0 0 5px 20px;
+    padding: 0 0 5px 20px;
 }
 
 .single_project {
@@ -523,7 +529,7 @@ body a {
 }
 
 
-.waves{
+.waves {
     width: 100vw;
 }
 
@@ -535,18 +541,22 @@ body a {
     position: absolute;
     margin-top: 0.07rem;
 }
+
 .final-wave-3 {
     position: absolute;
     margin-top: 0.9rem;
 }
-.final-wave-4{
+
+.final-wave-4 {
     position: absolute;
     margin-top: 0.99rem;
 }
-.final-wave-5{
+
+.final-wave-5 {
     position: absolute;
     margin-top: 1.3rem;
 }
+
 .final-wave-6 {
     position: absolute;
     margin-top: 1.36rem;
@@ -557,7 +567,7 @@ body a {
     height: fit-content;
 }
 
-.copyright{
+.copyright {
     z-index: 10;
     color: white;
 }
