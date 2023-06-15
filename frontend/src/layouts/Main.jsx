@@ -3,7 +3,9 @@ import Home from '../components/Home';
 import Stack from '../components/Stack';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
-
+import Footer from "../components/Footer.jsx";
+import React from "react";
+import GreyWaves from "../components/GreyWaves.jsx";
 
 
 function Main({projects}) {
@@ -14,8 +16,10 @@ function Main({projects}) {
             <Home />
             <Navbar />
             <Stack />
+            <GreyWaves/>
             <Projects projects={projects}/>
             <Contact />
+            <Footer/>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import {useState} from 'react';
 import abc from "../../public/abc.png"
 import axios from 'axios';
 import CButton from "./CButton.jsx";
-import Waves from "./Waves.jsx";
+import BlueWaves from "./BlueWaves.jsx";
 
 function Contact() {
     const linkeDnLink = <a href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn </a>;
@@ -54,7 +54,7 @@ function Contact() {
 
     return (
         <div className='contact'>
-            CONTACT
+            <p>CONTACT</p>
             <div className='contact_container'>
                 <div className='about'>
                     <div className='contact_pic'
@@ -103,7 +103,6 @@ function Contact() {
                     </CButton>
                 </form>
             </div>
-            <Waves/>
         </div>
     )
 }

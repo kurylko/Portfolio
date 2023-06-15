@@ -3,8 +3,10 @@ export const FIRST_SECTION_HEIGHT = 803;
 export const HOME_DESC_1 = `Hello,
 I'm Valeria.`
 
-export const HOME_DESC_2 = `I am a Full Stack
-Web Developer with
+export const HOME_DESC_2 = ` with
 Marketing && Communications background.
-Creating exiting user experience - my
-truly passion.`
+Creating remarkable and intuitive user experience - my
+true passion.`
+
+export const HOME_DESC_3 = `I am a Full Stack
+Web Developer`
