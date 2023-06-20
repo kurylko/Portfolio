@@ -15,10 +15,14 @@ function Navbar({handleClickHome, handleClickStack, handleClickProjects, handleC
     return (
         <nav className={`navbar ${isFirstSectionScrolledDown && 'nav-fixed'}`}>
             <ul>
-                <li onClick={handleClickHome}>HOME</li>
-                <li onClick={handleClickStack}>STACK</li>
-                <li onClick={handleClickProjects}>PROJECTS</li>
-                <li onClick={handleClickContacts}> CONTACT</li>
+                <li className="plain-button-with-underline"
+                    onClick={handleClickHome}>HOME</li>
+                <li className="plain-button-with-underline"
+                    onClick={handleClickStack}>STACK</li>
+                <li className="plain-button-with-underline"
+                    onClick={handleClickProjects}>PROJECTS</li>
+                <li className="plain-button-with-underline"
+                    onClick={handleClickContacts}> CONTACT</li>
             </ul>
         </nav>
     )

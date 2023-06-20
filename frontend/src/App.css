@@ -520,6 +520,10 @@ body a {
     padding-bottom: 10px;
 }
 
+.navbar > ul > li{
+    padding: 0 !important;
+}
+
 
 .nav-fixed {
     bottom: inherit;
