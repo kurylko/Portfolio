@@ -2,14 +2,7 @@ import '../App.css';
 import {HOME_DESC_1, HOME_DESC_2, HOME_DESC_3} from "../consts.js";
 import CButton from "./CButton.jsx";
 
-function Home() {
-    const handleClickContacts = () => {
-        document.querySelector(".contact").scrollIntoView({block: 'center'});
-    };
-
-    const handleClickProjects = () => {
-        document.querySelector(".projects").scrollIntoView({block: 'center'});
-    };
+function Home({handleClickContacts, handleClickProjects}) {
 
     return (
         <div className='home'>
