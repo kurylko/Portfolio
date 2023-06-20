@@ -8,5 +8,5 @@ Marketing && Communications background.
 Creating remarkable and intuitive user experience - my
 true passion.`
 
-export const HOME_DESC_3 = `I am a Full Stack
+export const HOME_DESC_3 = `I am a Front-End
 Web Developer`
