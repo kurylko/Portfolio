@@ -71,7 +71,7 @@ function Projects({projects = []}) {
                     <ul>
                         <li className='allFrameworks'>
                             <button className='plain-button-with-underline'
-                            onClick={onClickAllFrameworks}>
+                                    onClick={onClickAllFrameworks}>
                                 ALL
                             </button>
                         </li>
@@ -81,7 +81,7 @@ function Projects({projects = []}) {
                             >
                                 <button className='plain-button-with-underline'
                                         onClick={() => setSelectedFramework(element)}
-                                      >
+                                >
                                     {`${element}`} </button>
                             </li>
                         ))}
@@ -94,36 +94,33 @@ function Projects({projects = []}) {
                         handleChangeLanguage={handleChangeLanguage}
                     />
                 </div>
-
-
             </div>
 
             <div className='projects_container'>
-
                 {finalList.map((project, index) => (
-                    <div className='single_project'
-                         key={index}
-                         style={{
-                             backgroundImage: `url(${project.pictureUrl})`
-                         }}
-                    >
-                        <div className='project_pic_cover'></div>
-                        <div className='project_name'>{project.name}</div>
-
-
-                        <div className='projects_buttons'>
+                    <div className='single-project-content'>
+                        <div className='single-project-line'>
+                            <div className='project_name'>{project.name}</div>
                             {!project.deployLink ? null :
                                 <a href={project.deployLink}>
                                     <CButton className='view_btn' variant="outlined" color="secondary">
                                         <ArrowOutwardIcon/></CButton>
                                 </a>
                             }
+                        </div>
+                        <div className='single_project'
+                             key={index}
+                             style={{
+                                 backgroundImage: `url(${project.pictureUrl})`
+                             }}
+                        >
+                            <div className='project_pic_cover'></div>
 
                             <Popup
                                 className="pop_up"
                                 position="center center"
                                 width="500px"
-                                trigger={<p className="plain-button-with-underline"> DESCRIPTION </p>}
+                                trigger={<p className="plain-button-with-underline description-btn"> DESCRIPTION </p>}
                             >
                                 <div className="my_popup_content">
                                     <div>{project.name}</div>
@@ -150,6 +147,7 @@ function Projects({projects = []}) {
                                     }
                                 </div>
                             </Popup>
+
                         </div>
                     </div>
                 ))}
@@ -165,8 +163,6 @@ function Projects({projects = []}) {
                     ))}
                 </ul>
             </div>
-
-
         </div>
     )
 }

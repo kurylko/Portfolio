@@ -274,6 +274,7 @@ a:hover:after {
     width: 20%;
     height: 50px;
     padding-right: 40px;
+    z-index: 1;
 }
 
 .tech_menu {
@@ -321,11 +322,27 @@ body a {
     padding: 0 0 5px 20px;
 }
 
-.single_project {
+.single-project-content{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+}
+
+.single-project-line{
+    width: 100%;
+    height: 50px;
     display: flex;
     flex-direction: row;
-    height: 250px;
-    width: 500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.single_project {
+    display: grid;
+    flex-direction: row;
+    width: 100%;
+    height: 25rem;
     background-position: center;
     background-size: cover;
     position: relative;
@@ -334,6 +351,7 @@ body a {
 .single_project > a {
     z-index: 1;
 }
+
 
 .project_pic_cover {
     position: absolute;
@@ -371,6 +389,11 @@ body a {
     height: 30px;
     color: #020d17;
     border-bottom: 1px solid rgb(207, 95, 95);
+}
+
+.description-btn {
+    align-self: flex-end;
+    justify-self: flex-end;
 }
 
 .pop_up {
