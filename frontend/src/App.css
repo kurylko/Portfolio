@@ -169,89 +169,66 @@ a:hover:after {
     padding-top: 65px;
 }
 
+.stack-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 40px;
+    gap: 80px;
+}
+
 .languages {
     display: flex;
-}
-
-.languages-text {
-    padding-left: 25px;
-}
-
-.back_front {
-    display: flex;
-    flex-direction: row;
-    align-self: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    height: fit-content;
-    margin: 0 0 10px 0;
-}
-
-.back_title {
-    justify-self: center;
-}
-
-.front_title {
-    justify-self: flex-start;
-}
-
-.back {
-    display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.8);;
-    color: white;
-    width: 100%;
-    flex-grow: 1;
-    gap: 30px;
-    padding-left: 25px;
-    padding-top: 30px;
 }
 
-.dev_block_back {
+.js-ts-icons {
     display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-
-.back_dev_tech {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    padding: 10px;
-}
-
-.front {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 5;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
     gap: 20px;
-    padding-left: 15px;
-    padding-top: 30px;
-    background-color: rgba(252, 133, 133, 0.5);
 }
 
-.dev_block_front {
+.js-ts-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.grey-mask {
+    background-color: #747bff;
+    width: 60px;
+    height: 60px;
+}
+
+.grey-mask:hover {
+    display: none;
+}
+
+.stack-list {
     display: flex;
-    flex-direction: row;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.front_dev_tech {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 25px;
-    padding: 10px;
+.stack-item {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--primary-dark);
+    border-radius: 10px;
+    background-color: var(--primary-light-grey);
+    width: 80px;
+    height: 50px;
+    padding: 8px;
 }
 
-.single_tech {
-    display: block;
-    border: 1px solid rgb(207, 95, 95, 0.8);
-    border-radius: 0.5rem;
-    padding: 0.3rem;
-    text-align: center;
+.stack-icon {
+    max-width: 50px;
+    max-height: 50px;
+    align-self: center;
 }
+
+
 
 /* Projects*/
 
@@ -590,12 +567,17 @@ body a {
 }
 
 .footer {
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: fit-content;
 }
 
+.footer-layout{
+    display: block;
+}
+
 .copyright {
-    z-index: 10;
+    z-index: 2;
     color: white;
 }
 

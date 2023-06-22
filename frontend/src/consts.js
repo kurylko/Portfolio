@@ -10,3 +10,5 @@ true passion.`
 
 export const HOME_DESC_3 = `I am a Front-End
 Web Developer`
+
+export const PROGRAMMING_LANGUAGES = `Programming languages `
