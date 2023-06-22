@@ -145,6 +145,7 @@ a:hover:after {
     font-weight: 300;
     line-height: 29px;
     font-size: 22px;
+    gap: 30px
 }
 
 .desk-dev {
@@ -176,30 +177,9 @@ a:hover:after {
     gap: 80px;
 }
 
-.languages {
-    display: flex;
-    flex-direction: column;
-}
-
-.js-ts-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.js-ts-icon {
-    width: 60px;
-    height: 60px;
-}
-
-.grey-mask {
-    background-color: #747bff;
-    width: 60px;
-    height: 60px;
-}
-
-.grey-mask:hover {
-    display: none;
+.desc-2 {
+    text-align: left;
+    width: auto;
 }
 
 .stack-list {
@@ -208,7 +188,7 @@ a:hover:after {
     gap: 20px;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 140%;
 }
 
 .stack-item {
