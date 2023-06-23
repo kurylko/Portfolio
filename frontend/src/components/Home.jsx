@@ -1,35 +1,23 @@
 import '../App.css';
-import linkedin from "../../public/linkedin.png";
-import gitlab from "../../public/gitlab.png";
-import github from "../../public/github.png";
-import Space from "../../public/Space.mp4"
-import {HOME_DESC_1, HOME_DESC_2} from "../consts.js";
+import {HOME_DESC_1, HOME_DESC_3} from "../consts.js";
+import CButton from "./CButton.jsx";
 
-function Home() {
+function Home({handleClickContacts, handleClickProjects}) {
+
     return (
         <div className='home'>
-            <video className="background_video" loop autoPlay>
-                <source src={Space}
-                        type="video/mp4"/>
-                Your browser does not support the video tag.
-            </video>
-
             <div className='home-objects'>
                 <div className='home_desc'>
-                    <pre>{HOME_DESC_1}</pre>
-                    <pre>{HOME_DESC_2}</pre>
+                    <h2>{HOME_DESC_1}</h2>
+                    <h1 className='desk-dev'>{HOME_DESC_3}</h1>
+                    <div className='home-buttons'>
+                        <CButton className='plain-button-with-underline' variant="outlined" color="secondary"
+                                 onClick={handleClickProjects}>My projects</CButton>
+                        <CButton className='plain-button-with-underline' variant="outlined"
+                                 color="secondary" onClick={handleClickContacts}>Contact</CButton>
+                    </div>
                 </div>
-                <div className='social_links'>
-                    <a href="https://www.linkedin.com/in/valeria-kurylko/">
-                        <div><img className='social_icon' src={linkedin} alt="linkedin"/></div>
-                    </a>
-                    <a href="https://github.com/kurylko">
-                        <div><img className='social_icon' src={github} alt="github"/></div>
-                    </a>
-                    <a href="https://gitlab.com/val_kurylko">
-                        <div><img className='social_icon' src={gitlab} alt="gitlab"/></div>
-                    </a>
-                </div>
+
             </div>
         </div>
     )

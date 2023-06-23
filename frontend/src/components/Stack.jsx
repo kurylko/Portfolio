@@ -1,80 +1,42 @@
 import '../App.css';
 import iconsjavascript from '../assets/iconsjavascript.png';
 import iconstypescript from '../assets/iconstypescript.png';
-import AddIcon from '@mui/icons-material/Add';
+import {DESC_2} from "../consts.js";
+import css from '../assets/icons/css.png';
+import html from '../assets/icons/html.png';
+import api from '../assets/icons/api.png';
+import code from '../assets/icons/code.png';
+import express from '../assets/icons/express-js.png';
+import firebase from '../assets/icons/firebase-logo.png';
+import materialui from '../assets/icons/material-ui.png';
+import mysql from '../assets/icons/mysql.png';
+import nextjs from '../assets/icons/next-js-logo.png';
+import node from '../assets/icons/node-logo.png';
+import react from '../assets/icons/react.png';
+import sass from '../assets/icons/sass.png';
+import tailwind from '../assets/icons/tailwind-logo.png';
+import vite from '../assets/icons/vite-logo.png';
+import jscolor from '../assets/js-color.svg';
+import tscolor from '../assets/ts-color.svg';
+import jsicon from '../assets/iconsjavascript.png';
+import tsicon from '../assets/iconstypescript.png';
 
 function Stack() {
+
+    const iconsArray = [jsicon, tsicon, css, html, react, nextjs, api, materialui, sass, tailwind, vite, node, express, mysql, firebase];
 
     return (
         <div className='stack'>
             MY STACK
-            <div className='languages'>
-                <p className='languages-text'>Programming languages:
-                    <img className='social_icon' src={iconsjavascript} alt="js-icon" />
-                    <AddIcon />
-                    <img className='social_icon' src={iconstypescript} alt="ts-icon" />
-                </p>
-            </div>
-
-            <div className='back_front'>
-                <div className='back'>
-                    <div className='back_title'>BACKEND</div>
-                    <div className='dev_block_back'>
-                        <div>Development:</div>
-                        <div className='back_dev_tech'>
-                            <div className='single_tech'>Express</div>
-                            <div className='single_tech'>Node.js</div>
+            <div className='stack-container'>
+                <h1 className='desc-2'>{DESC_2}</h1>
+                <div className='stack-list'>
+                    {iconsArray.map((icon) =>
+                        <div className='stack-item'>
+                            <img className='stack-icon' src={icon} alt={icon}/>
                         </div>
-                    </div>
-                    <div className='dev_block_back'>
-                        <div>Database:</div>
-                        <div className='back_dev_tech'>
-                            <div className='single_tech'>MySQL</div>
-                            <div className='single_tech'>Firebase</div>
-                        </div>
-                    </div>
-                    <div className='dev_block_back'>
-                        <div>Software:</div>
-                        <div className='back_dev_tech'>
-                            <div className='single_tech'>Postman</div>
-                        </div>
-                    </div>
+                    )}
                 </div>
-
-                <div className='front'>
-                    <div className='front_title'>FRONTEND</div>
-                    <div className='dev_block_front'>
-                        <div>Development:</div>
-                        <div className='front_dev_tech'>
-                            <div className='single_tech'>REACT.JS</div>
-                            <div className='single_tech'>Next.js</div>
-                            <div className='single_tech'>REST API</div>
-                            <div className='single_tech'>CSS</div>
-                            <div className='single_tech'>HTML</div>
-                            <div className='single_tech'>SASS</div>
-                        </div>
-                    </div>
-                    <div className='dev_block_front'>
-                        <div className='dev_block_front'>
-                            <div>Tools:</div>
-                            <div className='front_dev_tech'>
-                                <div className='single_tech'>Redux</div>
-                                <div className='single_tech'>Vite</div>
-                                <div className='single_tech'>Material UI</div>
-                                <div className='single_tech'>Tailwind</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='dev_block_front'>
-                        <div className='dev_block_front'>
-                            <div>Software:</div>
-                            <div className='front_dev_tech'>
-                                <div className='single_tech'>Figma</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     )

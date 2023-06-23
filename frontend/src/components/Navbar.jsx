@@ -1,9 +1,8 @@
 import '../App.css';
 import React, {useLayoutEffect, useState} from 'react';
-import {NavLink} from "react-router-dom";
 import {FIRST_SECTION_HEIGHT} from "../consts.js";
 
-function Navbar() {
+function Navbar({handleClickHome, handleClickStack, handleClickProjects, handleClickContacts}) {
     const [isFirstSectionScrolledDown, setIsFirstSectionScrolledDown] = useState(false);
     const handleScroll = () => {
         setIsFirstSectionScrolledDown(window.scrollY > FIRST_SECTION_HEIGHT)
@@ -16,10 +15,14 @@ function Navbar() {
     return (
         <nav className={`navbar ${isFirstSectionScrolledDown && 'nav-fixed'}`}>
             <ul>
-                <li><NavLink to='/'>HOME</NavLink></li>
-                <li><NavLink to='/stack'>STACK</NavLink></li>
-                <li><NavLink to='/projects'>PROJECTS</NavLink></li>
-                <li><NavLink to='/contact'>CONTACT</NavLink></li>
+                <li className="plain-button-with-underline"
+                    onClick={handleClickHome}>HOME</li>
+                <li className="plain-button-with-underline"
+                    onClick={handleClickStack}>STACK</li>
+                <li className="plain-button-with-underline"
+                    onClick={handleClickProjects}>PROJECTS</li>
+                <li className="plain-button-with-underline"
+                    onClick={handleClickContacts}> CONTACT</li>
             </ul>
         </nav>
     )
