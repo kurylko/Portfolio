@@ -266,14 +266,14 @@ body a {
     padding: 0 0 5px 20px;
 }
 
-.single-project-content {
+.single-project-card {
     display: flex;
     flex-direction: column;
     width: 30%;
 
 }
 
-.single-project-line {
+.single-project-top {
     width: 100%;
     height: 50px;
     display: flex;

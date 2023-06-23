@@ -95,8 +95,8 @@ function Projects({projects = []}) {
 
             <div className='projects_container'>
                 {finalList.map((project, index) => (
-                    <div className='single-project-content'>
-                        <div className='single-project-line'>
+                    <div className='single-project-card'>
+                        <div className='single-project-top'>
                             <div className='project_name'>{project.name}</div>
                             {!project.deployLink ? null :
                                 <a href='/home'>
@@ -120,7 +120,7 @@ function Projects({projects = []}) {
                                 }
                                 {!project.repository ? null :
                                     <a href={project.repository}>
-                                        <img src={gitHubLogo} style={{width: "45px"}}/>
+                                        <img src={gitHubLogo} style={{width: '40px', opacity: '0.7'}}/>
                                     </a>
                                 }
                             </div>
