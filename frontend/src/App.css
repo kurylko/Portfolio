@@ -521,4 +521,9 @@ div.single_project:hover .project-details-container {
 .social_icon {
     width: 50px;
     height: 50px;
+    filter: grayscale(70%);
+}
+
+.social_icon:hover {
+    filter: none;
 }
