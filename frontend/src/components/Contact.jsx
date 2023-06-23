@@ -3,7 +3,6 @@ import {useState} from 'react';
 import abc from "../../public/abc.png"
 import axios from 'axios';
 import CButton from "./CButton.jsx";
-import BlueWaves from "./BlueWaves.jsx";
 
 function Contact() {
     const linkeDnLink = <a href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn </a>;

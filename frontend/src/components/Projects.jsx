@@ -1,12 +1,10 @@
 import '../App.css';
 import {useState} from 'react';
-import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
 import CButton from "./CButton.jsx";
-import poster from '../assets/App Poster.png'
+import gitHubLogo from '../../public/github1.png';
 
 
 function Projects({projects = []}) {
@@ -52,13 +50,11 @@ function Projects({projects = []}) {
         let isMatchedByVisibility = project.isShown === true;
         let isMatchedByFramework = project.framework === selectedFramework || !selectedFramework;
         let isMatchedByLanguage = project.language === 'TypeScript' && isChecked || project.language !== 'TypeScript' && !isChecked;
-        let isMatchedByTag = project.tag === selectedTag || !selectedTag;
 
         return (
             isMatchedByVisibility &&
             isMatchedByFramework &&
-            isMatchedByLanguage &&
-            isMatchedByTag
+            isMatchedByLanguage
         )
     });
 
@@ -103,8 +99,8 @@ function Projects({projects = []}) {
                         <div className='single-project-line'>
                             <div className='project_name'>{project.name}</div>
                             {!project.deployLink ? null :
-                                <a href={project.deployLink}>
-                                    <CButton className='view_btn' variant="outlined" color="secondary">
+                                <a href='/home'>
+                                    <CButton className='view-project-website-btn' variant='outlined' color='primary'>
                                         <ArrowOutwardIcon/></CButton>
                                 </a>
                             }
@@ -115,54 +111,31 @@ function Projects({projects = []}) {
                                  backgroundImage: `url(${project.pictureUrl})`
                              }}
                         >
-
-                            <Popup
-                                className="pop_up"
-                                position="center center"
-                                width="500px"
-                                trigger={<p className="plain-button-with-underline description-btn"> DESCRIPTION </p>}
-                            >
-                                <div className="my_popup_content">
-                                    <div>{project.name}</div>
-                                    <div>
-                                        <img className='small_pr_pic'
-                                             src={project.pictureUrl} alt={project.name}
-                                        >
-                                        </img></div>
-                                    <div style={{width: "450px", paddingBottom: "8px"}}>{project.description}</div>
-                                    {!project.features ? null :
-                                        <div>Features: {project.features}</div>
-                                    }
-                                    <div>Status: {project.status} ({project.year})</div>
-                                    {!project.repository ? null :
-                                        <a style={{width: "450px"}} href={project.repository}>
-                                            <div>Visit repository</div>
-                                        </a>
-                                    }
-                                    {!project.deployLink ? null :
-                                        <a style={{width: "450px"}} href={project.deployLink}>
-                                            <CButton variant='contained' color='primary'>
-                                                <ArrowOutwardIcon/>View site</CButton>
-                                        </a>
-                                    }
-                                </div>
-                            </Popup>
-
+                            <div className='project-details-container'>
+                                {!project.tech ? null :
+                                    <div>{project.tech}</div>
+                                }
+                                {!project.features ? null :
+                                    <div>{project.features}</div>
+                                }
+                                {!project.repository ? null :
+                                    <a href={project.repository}>
+                                        <img src={gitHubLogo} style={{width: "45px"}}/>
+                                    </a>
+                                }
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <div className='tag_menu'>
-                <ul className='tags-list'>
-                    {filteredTags.map((element, index) => (
-                        <li className='single_tag'>
-                            <button
-                                onClick={() => setSelectedTag(element)}> {`#${element}`} </button>
-                        </li>
-                    ))}
-                </ul>
+
+            <div className='tags-list'>
+                {filteredTags.map((element, index) => (
+                    <div className='single-tag'></div>
+                ))}
             </div>
+
         </div>
     )
 }
