@@ -115,7 +115,6 @@ function Projects({projects = []}) {
                                  backgroundImage: `url(${project.pictureUrl})`
                              }}
                         >
-                            <div className='project_pic_cover'></div>
 
                             <Popup
                                 className="pop_up"
