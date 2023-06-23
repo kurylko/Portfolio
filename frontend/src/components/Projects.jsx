@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
 import CButton from "./CButton.jsx";
+import poster from '../assets/App Poster.png'
 
 
 function Projects({projects = []}) {
