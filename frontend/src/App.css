@@ -340,6 +340,12 @@ div.single_project:hover .project-details-container {
     transition: transform, padding .9s;
 }
 
+.code-icon:hover {
+    color: var(--primary-red-opacity);
+    border: 6px solid var(--primary-light-grey);
+    padding: 10px 15px;
+    transition: all 0.70s ease-in-out;
+}
 
 .tags-list {
     display: flex;

@@ -4,7 +4,7 @@ import "reactjs-popup/dist/index.css";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
 import CButton from "./CButton.jsx";
-import gitHubLogo from '../../public/github1.png';
+import code from '../assets/icons/code.png'
 
 
 function Projects({projects = []}) {
@@ -120,7 +120,7 @@ function Projects({projects = []}) {
                                 }
                                 {!project.repository ? null :
                                     <a href={project.repository}>
-                                        <img src={gitHubLogo} style={{width: '40px', opacity: '0.7'}}/>
+                                        <img className='code-icon' src={code} style={{width: '35px', opacity: '0.7'}}/>
                                     </a>
                                 }
                             </div>
