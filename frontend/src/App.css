@@ -527,3 +527,8 @@ div.single_project:hover .project-details-container {
 .social_icon:hover {
     filter: none;
 }
+
+.message-links:hover {
+    border-bottom: 1px solid var(--primary-red-opacity);
+    transition: 0.3s;
+}

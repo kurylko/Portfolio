@@ -5,7 +5,6 @@ import axios from 'axios';
 import CButton from "./CButton.jsx";
 
 function Contact() {
-    const linkeDnLink = <a href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn </a>;
 
     const [message, setMessage] = useState({
         userName: "",
@@ -66,7 +65,6 @@ function Contact() {
                     </div>
                     <div>
                         <p>Collaboration - key for successful projects.</p>
-                        <p>Feel free to reach me on {linkeDnLink} or send a direct message.</p>
                     </div>
                 </div>
 
