@@ -100,7 +100,7 @@ function Projects({projects = []}) {
                             <div className='project_name'>{project.name}</div>
                             {!project.deployLink ? null :
                                 <a href='/home'>
-                                    <CButton className='view-project-website-btn' variant='outlined' color='primary'>
+                                    <CButton className='view-project-website-btn plain-button-with-underline' variant='outlined' color='primary'>
                                         <ArrowOutwardIcon/></CButton>
                                 </a>
                             }
