@@ -58,14 +58,14 @@ const validateContact = (req, res, next) => {
 
   const emailRegex = /[a-z0-9._]+@[a-z0-9-]+\.[a-z]{2,3}/;
 
-  if (message == null) {
+  if (!message) {
     errors.push({ field: "message", message: "Please type your message" });
   }
-  if (name == null) {
+  if (!name) {
     errors.push({ field: "name", message: "Please type your name" });
   }
-  if (email == null) {
-    errors.push({ field: "name", message: "And what is your email?" });
+  if (!email) {
+    errors.push({ field: "name", message: "Please type your e-mail" });
   }
   if (!emailRegex.test(email)) {
     errors.push({ field: 'email', message: 'Invalid email' });
@@ -88,7 +88,7 @@ const createContact = async (
     res.status(201).send(doc.id);
   })
     .catch((err) => {
-      console.error(err, "no no no");
+      console.error(err, "Error: message can't be sent");
       res.sendStatus(500);
     });
 };
