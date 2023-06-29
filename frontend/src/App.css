@@ -114,13 +114,22 @@ a:hover:after {
 
 .home-objects {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 1;
     gap: 40px;
+}
+
+.home-free-shape {
+    position: relative;
+    align-self: center;
+}
+
+.home-free-shape:hover {
+    padding-left: 20px;
+    padding-bottom: 60px;
+    transition: transform, padding .9s;
 }
 
 .home_desc {
@@ -129,7 +138,7 @@ a:hover:after {
     align-self: center;
     width: 40%;
     height: fit-content;
-    margin: 120px 400px 0 0;
+    margin: 60px 40px 0 100px;
     font-weight: 300;
     line-height: 29px;
     font-size: 22px;
@@ -390,12 +399,13 @@ div.single_project:hover .project-details-container {
     width: 70%;
 }
 
+.send-a-mail {
+    width: 100%;
+    align-self: center;
+}
+
 .contact_pic {
-    width: 100px;
-    height: 100px;
-    background-color: var(--primary-red-opacity);
-    border-radius: 90px;
-    border: 1px solid var(--primary-light-grey);
+    width: 30%;
 }
 
 .contact_form {
@@ -462,6 +472,7 @@ div.single_project:hover .project-details-container {
     top: 0;
 }
 
+/* Waves */
 
 .waves {
     width: 100vw;
@@ -505,37 +516,30 @@ div.single_project:hover .project-details-container {
 .footer-layout {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    padding-top: 160px;
+    justify-content: space-between;
 }
 
 .blue-waves {
     position: absolute;
 }
 
-.send-a-mail {
-    width: 100%;
+.blue-wave {
+    position: absolute;
 }
 
-.copyright {
-    color: white;
-    width: 100%;
-    background-color: var(--primary-blue);
-    text-align: center;
-    bottom: 0;
-    top: 0;
-    padding-bottom: 10px;
-}
 
+/* Footer */
 
 .social_links {
     display: flex;
-    flex-direction: row;
-    align-self: flex-end;
-    justify-self: flex-end;
     gap: 14px;
-    z-index: 2;
-    margin: 2rem;
+    margin-right: 40px;
 }
 
 .social_icon {
@@ -551,4 +555,10 @@ div.single_project:hover .project-details-container {
 .message-links:hover {
     border-bottom: 1px solid var(--primary-red-opacity);
     transition: 0.3s;
+}
+
+.footer-text {
+    color: var(--primary-light-grey);
+    margin-left: 40px;
+    z-index: 2;
 }

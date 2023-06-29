@@ -51,9 +51,16 @@ function Contact() {
             <p>CONTACT</p>
             <div className='contact_container'>
                 <div className='about'>
-                    <div className='contact_pic'></div>
+                    <div className='contact_pic'>
+
+                    </div>
                     <div>
                         <h1>Need a hand to develop a chart buster web app?</h1>
+                        <div className='send-a-mail'>Feel free to reach me on <a className='message-links'
+                                                                                 href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn</a> or
+                            send
+                            an <a className='message-links' href="mailto:valeriia.kurylko22@gmail.com">e-mail</a>.
+                        </div>
                     </div>
                 </div>
 
