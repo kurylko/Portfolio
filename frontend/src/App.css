@@ -440,6 +440,7 @@ div.single_project:hover .project-details-container {
     width: 150px;
     align-self: center;
     margin-top: 10px !important;
+    z-index: 2;
 }
 
 /* Navbar */
