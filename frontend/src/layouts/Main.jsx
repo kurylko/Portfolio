@@ -6,6 +6,7 @@ import Contact from '../components/Contact';
 import Footer from "../components/Footer.jsx";
 import React from "react";
 import GreyWaves from "../components/GreyWaves.jsx";
+import ResumeLabel from "../components/ResumeLaber.jsx";
 
 function Main({projects}) {
 
@@ -34,6 +35,7 @@ function Main({projects}) {
                 handleClickProjects={handleClickProjects}
                 handleClickContacts={handleClickContacts}
             />
+            <ResumeLabel/>
             <Stack/>
             <GreyWaves/>
             <Projects projects={projects}/>
