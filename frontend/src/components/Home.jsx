@@ -8,8 +8,8 @@ function Home({handleClickContacts, handleClickProjects}) {
         <div className='home'>
             <div className='home-objects'>
                 <div className='home_desc'>
-                    <h2>{HOME_DESC_1}</h2>
-                    <h1 className='desk-dev'>{HOME_DESC_3}</h1>
+                    <h2 className='heading-small'>{HOME_DESC_1}</h2>
+                    <h1 className='desk-dev heading'>{HOME_DESC_3}</h1>
                     <div className='home-buttons'>
                         <CButton className='plain-button-with-underline' variant="outlined" color="secondary"
                                  onClick={handleClickProjects}>My projects</CButton>
