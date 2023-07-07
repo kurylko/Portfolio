@@ -2,7 +2,7 @@ import '../App.css';
 import {useState} from 'react';
 import axios from 'axios';
 import CButton from "./CButton.jsx";
-import ResumeLabel from "./ResumeLaber.jsx";
+import { api } from './../consts';
 
 function Contact() {
     const [error, setError] = useState('')
@@ -23,7 +23,7 @@ function Contact() {
             message: message.userMessage
         };
 
-        axios.post("http://localhost:5005/contacts", userData).then((response) => {
+        axios.post(`http://${api}/contacts`, userData).then((response) => {
             setMessage({
                 userName: "",
                 email: "",

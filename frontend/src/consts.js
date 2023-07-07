@@ -1,3 +1,5 @@
+export const api = import.meta.env.VITE_API_URL;
+
 export const FIRST_SECTION_HEIGHT = 803;
 
 export const HOME_DESC_1 = `Hello,

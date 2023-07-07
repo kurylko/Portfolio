@@ -3,14 +3,14 @@ import Main from './layouts/Main';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
-
+import { api } from './consts';
 
 function App() {
   const [projects, setProjects] = useState([]);
 
   async function getData() {
     try {
-      const response = await axios.get("http://localhost:5005/projects");
+      const response = await axios.get(`http://${api}/projects`);
       const allProjects = response.data;
       setProjects(allProjects)
     }
