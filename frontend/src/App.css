@@ -572,7 +572,6 @@ div.single_project:hover .project-details-container {
     position: absolute;
     width: 100%;
     justify-content: flex-end;
-    padding-top: 27px;
 }
 
 .resume-label-fixed {

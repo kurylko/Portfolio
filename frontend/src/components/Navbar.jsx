@@ -1,6 +1,7 @@
 import '../App.css';
 import React, {useLayoutEffect, useState} from 'react';
 import {FIRST_SECTION_HEIGHT} from "../consts.js";
+import ResumeLabel from "./ResumeLaber.jsx";
 
 function Navbar({handleClickHome, handleClickStack, handleClickProjects, handleClickContacts}) {
     const [isFirstSectionScrolledDown, setIsFirstSectionScrolledDown] = useState(false);
@@ -16,14 +17,19 @@ function Navbar({handleClickHome, handleClickStack, handleClickProjects, handleC
         <nav className={`navbar ${isFirstSectionScrolledDown && 'nav-fixed'}`}>
             <ul>
                 <li className="plain-button-with-underline"
-                    onClick={handleClickHome}>HOME</li>
+                    onClick={handleClickHome}>HOME
+                </li>
                 <li className="plain-button-with-underline"
-                    onClick={handleClickStack}>STACK</li>
+                    onClick={handleClickStack}>STACK
+                </li>
                 <li className="plain-button-with-underline"
-                    onClick={handleClickProjects}>PROJECTS</li>
+                    onClick={handleClickProjects}>PROJECTS
+                </li>
                 <li className="plain-button-with-underline"
-                    onClick={handleClickContacts}> CONTACT</li>
+                    onClick={handleClickContacts}> CONTACT
+                </li>
             </ul>
+            <ResumeLabel/>
         </nav>
     )
 }

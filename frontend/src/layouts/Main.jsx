@@ -35,7 +35,6 @@ function Main({projects}) {
                 handleClickProjects={handleClickProjects}
                 handleClickContacts={handleClickContacts}
             />
-            <ResumeLabel/>
             <Stack/>
             <GreyWaves/>
             <Projects projects={projects}/>
