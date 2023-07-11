@@ -568,10 +568,7 @@ div.single_project:hover .project-details-container {
 /* Resume label */
 
 .resume-label {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    justify-content: flex-end;
+    display: none;
 }
 
 .resume-label-fixed {
@@ -617,6 +614,13 @@ div.single_project:hover .project-details-container {
 
     .js-ts-switcher {
         width: 40%;
+    }
+
+    .resume-label {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        justify-content: flex-end;
     }
 
     .social_icon {
