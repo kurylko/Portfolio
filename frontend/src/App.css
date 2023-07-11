@@ -603,6 +603,8 @@ div.single_project:hover .project-details-container {
     .menu-container {
         flex-direction: row;
         align-self: flex-start;
+        justify-content: space-between;
+        width: 100%;
     }
 
     .projects {
@@ -615,7 +617,6 @@ div.single_project:hover .project-details-container {
 
     .js-ts-switcher {
         width: 40%;
-        padding-right: 20px;
     }
 
     .social_icon {
@@ -654,10 +655,6 @@ div.single_project:hover .project-details-container {
 
     .stack-item {
         width: 80px;
-    }
-
-    .js-ts-switcher {
-        padding-right: 40px;
     }
 
     .projects_container {
