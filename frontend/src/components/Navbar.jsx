@@ -35,7 +35,6 @@ function Navbar({handleClickHome, handleClickStack, handleClickProjects, handleC
         setOpenHamburgerMenu(!openHamburgerMenu)
     };
 
-    console.log('mobile', !mobile)
     return (
         <div className='nav-container'>
             {!mobile ? null :
