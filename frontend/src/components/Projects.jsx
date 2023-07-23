@@ -94,32 +94,32 @@ function Projects({projects = []}) {
             </div>
 
             <div className='projects_container'>
-                {finalList.map((project, index) => (
-                    <div className='single-project-card'>
+                {finalList.map(({name, deployLink, pictureUrl, tech, features, repository}, index) => (
+                    <div className='single-project-card' key={index} >
                         <div className='single-project-top'>
-                            <div className='project_name'>{project.name}</div>
-                            {!project.deployLink ? null :
-                                <a href={project.deployLink}>
-                                    <CButton className='view-project-website-btn plain-button-with-underline' variant='outlined' color='primary'>
+                            <div className='project_name'>{name}</div>
+                            {!deployLink ? null :
+                                <a href={deployLink}>
+                                    <CButton className='view-project-website-btn plain-button-with-underline'
+                                             variant='outlined' color='primary'>
                                         <ArrowOutwardIcon/></CButton>
                                 </a>
                             }
                         </div>
                         <div className='single_project'
-                             key={index}
                              style={{
-                                 backgroundImage: `url(${project.pictureUrl})`
+                                 backgroundImage: `url(${pictureUrl})`
                              }}
                         >
                             <div className='project-details-container'>
-                                {!project.tech ? null :
-                                    <div>{project.tech}</div>
+                                {!tech ? null :
+                                    <div>{tech}</div>
                                 }
-                                {!project.features ? null :
-                                    <div>{project.features}</div>
+                                {!features ? null :
+                                    <div>{features}</div>
                                 }
-                                {!project.repository ? null :
-                                    <a href={project.repository}>
+                                {!repository ? null :
+                                    <a href={repository}>
                                         <img className='code-icon' src={code} style={{width: '35px', opacity: '0.7'}}/>
                                     </a>
                                 }
@@ -128,14 +128,6 @@ function Projects({projects = []}) {
                     </div>
                 ))}
             </div>
-
-
-            <div className='tags-list'>
-                {filteredTags.map((element, index) => (
-                    <div className='single-tag'></div>
-                ))}
-            </div>
-
         </div>
     )
 }
