@@ -26,8 +26,8 @@ function Stack() {
             <div className='stack-container'>
                 <h1 className='desc-2 heading-small'>{DESC_2}</h1>
                 <div className='stack-list'>
-                    {iconsArray.map((icon) =>
-                        <div className='stack-item'>
+                    {iconsArray.map((icon, index)  =>
+                        <div className='stack-item' key={index}>
                             <img className='stack-icon' src={icon} alt={icon}/>
                         </div>
                     )}
