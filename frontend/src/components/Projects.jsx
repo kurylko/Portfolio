@@ -117,7 +117,7 @@ function Projects({projects = []}) {
                                     <div>{features}</div>
                                 }
                                 {!repository ? null :
-                                    <a href={repository}>
+                                    <a target="_blank" href={repository}>
                                         <img className='code-icon' src={code} style={{width: '35px', opacity: '0.7'}}/>
                                     </a>
                                 }
