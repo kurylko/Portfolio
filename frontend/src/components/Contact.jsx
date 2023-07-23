@@ -52,7 +52,7 @@ function Contact() {
             <p>CONTACT</p>
             <div className='contact_container'>
                 <div className='about'>
-                        <h1 className='heading'>Need a hand to develop a chart buster web app?</h1>
+                        <h1 className='heading  contact-text'>Need a hand to develop a chart buster web app?</h1>
                         <div className='send-a-mail'>Feel free to reach me on <a className='message-links'
                                                                                  href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn</a> or
                             send

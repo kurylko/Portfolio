@@ -62,7 +62,7 @@ function Projects({projects = []}) {
 
     return (
         <div className='projects'>
-            PROJECTS
+            <p style={{zIndex:'0'}}>PROJECTS</p>
             <div className='menu-container'>
                 <div className='tech_menu'>
                     <ul>

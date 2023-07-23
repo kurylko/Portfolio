@@ -141,7 +141,7 @@ a:hover:after {
     align-self: center;
     width: 40%;
     height: fit-content;
-    margin: 0px 20px 0 45px;
+    margin: 0 20px 0 45px;
     gap: 30px
 }
 
@@ -172,10 +172,10 @@ a:hover:after {
 }
 
 .stack-container {
+    width: 90%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 10px 20px;
+    flex-direction: column;
+    align-self: center;
     gap: 10px;
 }
 
@@ -190,7 +190,7 @@ a:hover:after {
     gap: 20px;
     justify-content: center;
     align-items: center;
-    width: 140%;
+    width: 100%;
 }
 
 .stack-item {
@@ -399,6 +399,10 @@ div.single_project:hover .project-details-container {
     width: 90%;
 }
 
+.contact-text {
+    font-size: xxx-large;
+}
+
 .send-a-mail {
     width: 100%;
     align-self: center;
@@ -594,8 +598,8 @@ div.single_project:hover .project-details-container {
     }
 
     .desc-2 {
-        width: auto;
-        font-size: xxx-large;
+        font-size: xx-large;
+        line-height: 40px;
     }
 
     .stack-item {
@@ -645,14 +649,19 @@ div.single_project:hover .project-details-container {
         align-self: center;
     }
 
-    .desc-2 {
-        text-align: left;
+    .stack {
+        padding-bottom: 40px;
     }
 
     .stack-container {
-        flex-wrap: nowrap;
-        gap: 80px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 60px;
         padding: 40px 50px;
+    }
+
+    .desc-2 {
+        line-height: 55px;
     }
 
     .stack-item {
