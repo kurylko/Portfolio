@@ -1,23 +1,21 @@
 import '../App.css';
 import {useState} from 'react';
-import abc from "../../public/abc.png"
 import axios from 'axios';
 import CButton from "./CButton.jsx";
-import BlueWaves from "./BlueWaves.jsx";
+import { api } from './../consts';
 
 function Contact() {
-    const linkeDnLink = <a href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn </a>;
-
+    const [error, setError] = useState('')
     const [message, setMessage] = useState({
         userName: "",
         email: "",
         userMessage: ""
     })
 
-
     const MAX_LENGTH = 1000;
 
     const handleSubmit = (event) => {
+        setError('')
         event.preventDefault();
         const userData = {
             name: message.userName,
@@ -25,19 +23,16 @@ function Contact() {
             message: message.userMessage
         };
 
-
-        axios.post("http://localhost:5006/contacts", userData).then((response) => {
+        axios.post(`http://${api}/contacts`, userData).then((response) => {
             setMessage({
                 userName: "",
                 email: "",
                 userMessage: ""
             });
+            alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as possible!`);
 
-            if (response.data.validationErrors.length) {
-                console.log("post error:", response.data.validationErrors[0].message)
-            } else {
-                alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as possible!`);
-            }
+        }).catch(e => {
+            setError(e.response.data.validationErrors[0].message)
         });
     };
 
@@ -49,7 +44,7 @@ function Contact() {
                 ...message,
                 [event.target.name]: value
             });
-        } else alert('Please try <1000 char');
+        } else alert('Sorry, your message is too long. Please try <1000 characters.');
     };
 
     return (
@@ -57,48 +52,44 @@ function Contact() {
             <p>CONTACT</p>
             <div className='contact_container'>
                 <div className='about'>
-                    <div className='contact_pic'
-                         style={{
-                             backgroundImage: `url(${abc})`, backgroundSize: "contain",
-                             backgroundPosition: "top",
-                             background: "cover"
-                         }}
-                    >
-                    </div>
-                    <div>
-                        <p>Collaboration - key for successful projects.</p>
-                        <p>Feel free to reach me on {linkeDnLink} or send a direct message.</p>
-                    </div>
+                        <h1 className='heading'>Need a hand to develop a chart buster web app?</h1>
+                        <div className='send-a-mail'>Feel free to reach me on <a className='message-links'
+                                                                                 href="https://www.linkedin.com/in/valeria-kurylko/">LinkedIn</a> or
+                            send
+                            an <a className='message-links' href="mailto:valeriia.kurylko22@gmail.com">e-mail</a>.
+                        </div>
                 </div>
 
                 <form className='contact_form' onSubmit={handleSubmit}>
-                    <input className='message'
+                    <input className='message message-input'
                            type="text"
-                           placeholder="Your message"
+                           placeholder="How can I help you?"
                            name='userMessage'
                            value={message.userMessage}
                            onChange={handleChange}
                     >
 
                     </input>
-                    <input className='name'
+                    <input className='name message-input'
                            type="text"
-                           placeholder="Your name"
+                           placeholder="Please write your name"
                            name='userName'
                            value={message.userName}
                            onChange={handleChange}
                     >
 
                     </input>
-                    <input className='email'
+                    <input className='email message-input'
                            type="text"
-                           placeholder="Your email"
+                           placeholder="...and your e-mail"
                            name='email'
                            value={message.email}
                            onChange={handleChange}
                     >
                     </input>
-                    <CButton className='plain-button-with-underline' color="secondary" onClick={handleSubmit}>
+                    {!!error && <div className='contact-error'>{error}</div>}
+                    <CButton className='message-submit-btn plain-button-with-underline' variant="outlined"
+                             color="secondary" onClick={handleSubmit}>
                         Let's do it!
                     </CButton>
                 </form>
