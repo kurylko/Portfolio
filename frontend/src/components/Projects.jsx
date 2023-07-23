@@ -62,7 +62,7 @@ function Projects({projects = []}) {
 
     return (
         <div className='projects'>
-            <p style={{zIndex:'0'}}>PROJECTS</p>
+            <p style={{zIndex: '0'}}>PROJECTS</p>
             <div className='menu-container'>
                 <div className='tech_menu'>
                     <ul>
@@ -95,13 +95,13 @@ function Projects({projects = []}) {
 
             <div className='projects_container'>
                 {finalList.map(({name, deployLink, pictureUrl, tech, features, repository}, index) => (
-                    <div className='single-project-card' key={index} >
+                    <div className='single-project-card' key={index}>
                         <div className='single-project-top'>
                             <div className='project_name'>{name}</div>
                             {!deployLink ? null :
-                                    <CButton className='view-project-website-btn plain-button-with-underline'
-                                             variant='outlined' color='primary' href={deployLink}>
-                                        <ArrowOutwardIcon/></CButton>
+                                <CButton className='view-project-website-btn plain-button-with-underline'
+                                         variant='outlined' color='primary' href={deployLink}>
+                                    <ArrowOutwardIcon/></CButton>
                             }
                         </div>
                         <div className='single_project'
