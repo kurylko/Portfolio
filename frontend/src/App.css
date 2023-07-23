@@ -131,8 +131,8 @@ a:hover:after {
 .home-free-shape:hover {
     padding-left: 20px;
     padding-bottom: 60px;
-    transform: rotate(10deg);
-    transition: transform, padding .9s;
+    transform: rotate(180deg);
+    transition: transform 7s ease-out, padding .9s;
 }
 
 .home_desc {
