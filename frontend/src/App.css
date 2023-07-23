@@ -445,13 +445,18 @@ div.single_project:hover .project-details-container {
 
 /* Navbar */
 
+.nav-container {
+    position: absolute;
+}
+
 .navbar {
     position: absolute;
     width: 100vw;
+    z-index: 2;
     height: 3rem;
     background-color: var(--primary-light-grey);
-    z-index: 2;
 }
+
 
 .navbar > ul {
     display: flex;
@@ -472,6 +477,21 @@ div.single_project:hover .project-details-container {
     position: fixed;
     top: 0;
 }
+
+.hamburger-react {
+    margin-left: 20px;
+}
+
+.hamburger-container {
+    height: fit-content;
+    background-color: var(--primary-blue);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: white;
+    padding-right: 20px;
+}
+
 
 /* Waves */
 
@@ -568,7 +588,10 @@ div.single_project:hover .project-details-container {
 /* Resume label */
 
 .resume-label {
-    display: none;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-end;
 }
 
 .resume-label-fixed {
@@ -616,18 +639,12 @@ div.single_project:hover .project-details-container {
         width: 40%;
     }
 
-    .resume-label {
-        display: flex;
-        position: absolute;
-        width: 100%;
-        justify-content: flex-end;
-    }
-
     .social_icon {
         width: 50px;
         height: 50px;
         filter: grayscale(70%);
     }
+
 }
 
 @media screen and (min-width: 1023px) {
