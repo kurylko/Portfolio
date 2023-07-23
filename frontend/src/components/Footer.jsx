@@ -1,4 +1,3 @@
-import BlueWaves from "./BlueWaves.jsx";
 import linkedin from "../../public/linkedin.png";
 import github from "../../public/github.png";
 import gitlab from "../../public/gitlab.png";
