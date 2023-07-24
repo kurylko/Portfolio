@@ -553,7 +553,7 @@ div.single_project:hover .project-details-container {
 .social_icon {
     width: 30px;
     height: 30px;
-    filter: grayscale(70%);
+    filter: brightness(0);
 }
 
 .social_icon:hover {
