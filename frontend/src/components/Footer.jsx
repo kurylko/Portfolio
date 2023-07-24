@@ -1,6 +1,7 @@
 import linkedin from "../../public/linkedin.png";
-import github from "../../public/github.png";
+import github from "../../public/github-logo.png";
 import gitlab from "../../public/gitlab.png";
+
 
 const Footer = () => {
 
