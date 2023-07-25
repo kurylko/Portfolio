@@ -1,5 +1,5 @@
 {
-  "name": "template-start-scripts",
+  "name": "Portfolio web app of Junior Web Developer",
   "version": "0.1.0",
   "description": "Start scripts for a project containing frontend and backend with dev scripts each",
   "scripts": {
@@ -16,8 +16,8 @@
     "concurrently",
     "fullstack"
   ],
-  "author": "David Alexander Pfeiffer (davidmc971)",
-  "license": "MIT",
+  "author": "Valeriia Kurylko",
+  "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.6.0"
   }
