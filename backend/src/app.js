@@ -7,7 +7,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
-const EXPRESS_PORT = parseInt(process.env.EXPRESS_PORT ?? "5005", 10);
+const EXPRESS_PORT = parseInt(process.env.EXPRESS_PORT ?? "5000", 10);
 
 const app = express();
 
