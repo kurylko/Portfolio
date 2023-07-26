@@ -1,6 +1,5 @@
 import '../App.css';
 import {useState} from 'react';
-import "reactjs-popup/dist/index.css";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
 import CButton from "./CButton.jsx";
