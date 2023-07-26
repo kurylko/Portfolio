@@ -10,7 +10,7 @@ function App() {
 
   async function getData() {
     try {
-      const response = await axios.get(`http://${api}/projects`);
+      const response = await axios.get(`${api}/projects`);
       const allProjects = response.data;
       setProjects(allProjects)
     }

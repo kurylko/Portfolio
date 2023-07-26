@@ -23,7 +23,7 @@ function Contact() {
             message: message.userMessage
         };
 
-        axios.post(`http://${api}/contacts`, userData).then((response) => {
+        axios.post(`${api}/contacts`, userData).then((response) => {
             setMessage({
                 userName: "",
                 email: "",
