@@ -10,13 +10,13 @@ const Footer = () => {
             <p className='footer-text'>©Valeriia Kurylko 2023</p>
             <div className='social_links'>
                 <a href="https://www.linkedin.com/in/valeria-kurylko/">
-                    <div><img className='social_icon' src={linkedin} alt="linkedin"/></div>
+                    <img className='social_icon' src={linkedin} alt="linkedin"/>
                 </a>
                 <a href="https://github.com/kurylko">
-                    <div><img className='social_icon' src={github} alt="github"/></div>
+                    <img className='social_icon' src={github} alt="github"/>
                 </a>
                 <a href="https://gitlab.com/val_kurylko">
-                    <div><img className='social_icon' src={gitlab} alt="gitlab"/></div>
+                    <img className='social_icon' src={gitlab} alt="gitlab"/>
                 </a>
             </div>
         </div>
