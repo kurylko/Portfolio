@@ -4,10 +4,11 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
 import CButton from "./CButton.jsx";
 import code from '../assets/icons/code.png'
+import Loader from "./Loader.jsx";
 
 
-function Projects({projects = []}) {
-
+function Projects({projects = [], loading}) {
+    console.log(loading)
     // Tags filtering menu
     const filteredTags = [];
 
@@ -93,7 +94,14 @@ function Projects({projects = []}) {
             </div>
 
             <div className='projects_container'>
-                {finalList.map(({name, deployLink, pictureUrl, tech, features, repository}, index) => (
+                {loading ? <Loader/> : finalList.map(({
+                                                          name,
+                                                          deployLink,
+                                                          pictureUrl,
+                                                          tech,
+                                                          features,
+                                                          repository
+                                                      }, index) => (
                     <div className='single-project-card' key={index}>
                         <div className='single-project-top'>
                             <div className='project_name'>{name}</div>
