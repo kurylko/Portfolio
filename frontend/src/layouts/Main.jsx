@@ -7,7 +7,7 @@ import Footer from "../components/Footer.jsx";
 import React from "react";
 import GreyWaves from "../components/GreyWaves.jsx";
 
-function Main({projects}) {
+function Main({projects, loading}) {
 
     const handleClickHome = () => {
         document.querySelector(".home").scrollIntoView({block: 'center'});
@@ -36,7 +36,7 @@ function Main({projects}) {
             />
             <Stack/>
             <GreyWaves/>
-            <Projects projects={projects}/>
+            <Projects loading={loading} projects={projects}/>
             <Contact/>
             <Footer/>
         </div>
