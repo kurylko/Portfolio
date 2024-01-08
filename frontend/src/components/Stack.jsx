@@ -17,10 +17,11 @@ import jsicon from '../assets/icons/javascript-100.png';
 import tsicon from '../assets/icons/typescript-100.png';
 import dart from '../assets/icons/dart-2.png';
 import flutter from '../assets/icons/flutter-100.png';
+import postgresql from '../assets/icons/postgresql-100.png';
 
 function Stack() {
 
-    const iconsArray = [jsicon, tsicon, css, html, react, nextjs, api, materialui, sass, tailwind, vite, node, express, mysql, firebase, dart, flutter];
+    const iconsArray = [jsicon, tsicon, css, html, react, nextjs, api, materialui, sass, tailwind, vite, node, express, mysql, postgresql,firebase, dart, flutter];
 
     return (
         <div className='stack'>
