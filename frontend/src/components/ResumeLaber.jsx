@@ -1,6 +1,6 @@
 import CButton from "./CButton.jsx";
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import resume from '../assets/pdf/resume_Valeriia_Kurylko_en.pdf';
+import resume from '../assets/pdf/Valeriia_Kurylko-resume_en.pdf';
 
 
 function ResumeLabel() {
