@@ -291,6 +291,12 @@ body a {
     padding: 0 0 5px 20px;
 }
 
+.emptyProjectListMessage {
+    padding-top: 50px;
+    color: var(--primary-dark);
+    z-index: 1;
+}
+
 .single-project-card {
     display: flex;
     flex-direction: column;

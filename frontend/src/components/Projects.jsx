@@ -9,15 +9,17 @@ import Loader from "./Loader.jsx";
 
 function Projects({projects = [], loading}) {
     // Tags filtering menu
-    const filteredTags = [];
+    /*const filteredTags = [];
 
-    projects.filter((element) => element.isShown === true).forEach(element => {
-        if (!filteredTags.find(e => e === element.tag)) {
-            filteredTags.push(element.tag || '')
+    projects.forEach(element => {
+        if (element.hasOwnProperty('isShown') && element.isShown === true) {
+            if (!filteredTags.includes(element.tag)) {
+                filteredTags.push(element.tag || '');
+            }
         }
     });
 
-    const [selectedTag, setSelectedTag] = useState("");
+    const [selectedTag, setSelectedTag] = useState("");*/
 
 
     // Frameworks filtering menu
@@ -37,16 +39,17 @@ function Projects({projects = [], loading}) {
     };
 
 //  Switcher for JS / TS filtration
-
+    const [selectedLanguage, setSelectedLanguage] = useState("JavaScript");
     const [isChecked, setIsChecked] = useState(false);
     const handleChangeLanguage = (event) => {
-        setIsChecked(!isChecked)
+        setIsChecked(!isChecked);
+        setSelectedLanguage(selectedLanguage === "JavaScript" ? "TypeScript" : "JavaScript");
     };
 
 // Forming final list of projects to render
 
     const filteredProjects = projects.filter((project) => {
-        let isMatchedByVisibility = project.isShown === true;
+        let isMatchedByVisibility = !!project.isShown;
         let isMatchedByFramework = project.framework === selectedFramework || !selectedFramework;
         let isMatchedByLanguage = project.language === 'TypeScript' && isChecked || project.language !== 'TypeScript' && !isChecked;
 
@@ -57,7 +60,11 @@ function Projects({projects = [], loading}) {
         )
     });
 
-    const finalList = filteredProjects;
+    // Advanced empty message construction
+    const checkIfProjectsWithThisVFrameworkExistInOthersLanguages = () => projects.find(proj => proj.framework === selectedFramework);
+
+    const emptyMessage = checkIfProjectsWithThisVFrameworkExistInOthersLanguages() ? `I have no projects written with ${selectedFramework} and ${selectedLanguage} yet. But you can check ${selectedFramework} project on ${selectedLanguage === 'TypeScript' ? 'JavaScript': 'TypeScript'}.` : `Empty. I have no projects written with ${selectedFramework} and ${selectedLanguage} yet. Please, switch to another language or select another framework.`
+
 
     return (
         <div className='projects'>
@@ -93,44 +100,48 @@ function Projects({projects = [], loading}) {
             </div>
 
             <div className='projects_container'>
-                {loading ? <Loader/> : finalList.map(({
-                                                          name,
-                                                          deployLink,
-                                                          pictureUrl,
-                                                          tech,
-                                                          features,
-                                                          repository
-                                                      }, index) => (
-                    <div className='single-project-card' key={index}>
-                        <div className='single-project-top'>
-                            <div className='project_name'>{name}</div>
-                            {!deployLink ? null :
-                                <CButton className='view-project-website-btn plain-button-with-underline'
-                                         variant='outlined' color='primary' href={deployLink}>
-                                    <ArrowOutwardIcon/></CButton>
-                            }
-                        </div>
-                        <div className='single_project'
-                             style={{
-                                 backgroundImage: `url(${pictureUrl})`
-                             }}
-                        >
-                            <div className='project-details-container'>
-                                {!tech ? null :
-                                    <div>{tech}</div>
-                                }
-                                {!features ? null :
-                                    <div>{features}</div>
-                                }
-                                {!repository ? null :
-                                    <a target="_blank" href={repository}>
-                                        <img className='code-icon' src={code} style={{width: '35px', opacity: '0.7'}}/>
-                                    </a>
+                {loading ? <Loader/> : filteredProjects.length === 0 ?
+                    <p className="emptyProjectListMessage"> {emptyMessage} </p>
+                    : filteredProjects.map(({
+                                         name,
+                                         deployLink,
+                                         pictureUrl,
+                                         tech,
+                                         features,
+                                         repository,
+                                         isShown
+                                     }, index) => (
+                        <div className='single-project-card' key={index}>
+                            <div className='single-project-top'>
+                                <div className='project_name'>{name}</div>
+                                {!deployLink ? null :
+                                    <CButton className='view-project-website-btn plain-button-with-underline'
+                                             variant='outlined' color='primary' href={deployLink}>
+                                        <ArrowOutwardIcon/></CButton>
                                 }
                             </div>
+                            <div className='single_project'
+                                 style={{
+                                     backgroundImage: `url(${pictureUrl})`
+                                 }}
+                            >
+                                <div className='project-details-container'>
+                                    {!tech ? null :
+                                        <div>{tech}</div>
+                                    }
+                                    {!features ? null :
+                                        <div>{features}</div>
+                                    }
+                                    {!repository ? null :
+                                        <a target="_blank" href={repository}>
+                                            <img className='code-icon' src={code}
+                                                 style={{width: '35px', opacity: '0.7'}}/>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
             </div>
         </div>
     )

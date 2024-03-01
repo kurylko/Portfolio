@@ -11,10 +11,12 @@ function App() {
 
     async function getData() {
         try {
+            console.log(api )
             const response = await axios.get(`${api}/projects`);
             const allProjects = response.data;
            setLoading(false);
             setProjects(allProjects);
+            console.log(projects);
         }
         catch (error) {
             console.log("err", error);

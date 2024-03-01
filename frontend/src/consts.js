@@ -1,4 +1,4 @@
-export const api = import.meta.env.VITE_API_URL;
+export const api = import.meta.env.VITE_API_URL_LOCAL;
 
 export const FIRST_SECTION_HEIGHT = 803;
 
