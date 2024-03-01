@@ -1,7 +1,7 @@
 import linkedin from "../assets/icons/linkedin.png";
 import github from "../assets/icons/github-logo.png";
 import gitlab from "../assets/icons/gitlab.png";
-import { Link } from 'react-router-dom';
+import IconButton from "@mui/material/IconButton";
 
 
 const Footer = () => {
@@ -11,17 +11,17 @@ const Footer = () => {
 
     return (
         <div className='footer'>
-            <p className='footer-text'>©Valeriia Kurylko 2023</p>
+            <p className='footer-text'>©Valeriia Kurylko 2024</p>
             <div className='social_links'>
-                <Link to={linkedInUrl} target="_blank">
-                    <img className='social_icon' src={linkedin} alt="linkdn"/>
-                </Link>
-                <Link to={gitHubUrl} target="_blank">
-                    <img className='social_icon' src={github} alt="github"/>
-                </Link>
-                <Link to={gitLabUrl} target="_blank">
-                    <img className='social_icon' src={gitlab} alt="gitlab"/>
-                </Link>
+                <IconButton href={linkedInUrl}>
+                    <img className='social_icon' src={linkedin} alt="LinkedIn"/>
+                </IconButton>
+                <IconButton href={gitHubUrl}>
+                    <img className='social_icon' src={github} alt="GitHub"/>
+                </IconButton>
+                <IconButton href={gitLabUrl}>
+                    <img className='social_icon' src={gitlab} alt="GitLab"/>
+                </IconButton>
             </div>
         </div>
     )

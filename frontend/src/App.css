@@ -291,6 +291,12 @@ body a {
     padding: 0 0 5px 20px;
 }
 
+.emptyProjectListMessage {
+    padding-top: 50px;
+    color: var(--primary-dark);
+    z-index: 1;
+}
+
 .single-project-card {
     display: flex;
     flex-direction: column;
@@ -556,10 +562,16 @@ div.single_project:hover .project-details-container {
     padding: 10px;
     margin-top: 30px;
 }
-
+.footer a {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 26px;
+    margin: -26px;
+}
 .social_links {
     display: flex;
-    gap: 14px;
+    gap: 44px;
 }
 
 .social_icon {

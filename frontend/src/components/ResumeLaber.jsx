@@ -7,7 +7,7 @@ function ResumeLabel() {
 
     return (
         <div className='resume-label'>
-            <CButton variant='contained' className='resume-label-button' href={resume} target="_blank"><VisibilityIcon/>resume</CButton>
+            <CButton variant='contained' className='resume-label-button' href={resume} target="_blank" rel="noopener noreferrer"><VisibilityIcon/>resume</CButton>
         </div>
     )
 }
