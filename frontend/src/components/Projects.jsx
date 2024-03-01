@@ -3,12 +3,11 @@ import {useState} from 'react';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
 import CButton from "./CButton.jsx";
-import code from '../assets/icons/code.png'
+import code from "../assets/icons/code.png"
 import Loader from "./Loader.jsx";
 
 
 function Projects({projects = [], loading}) {
-    console.log(loading)
     // Tags filtering menu
     const filteredTags = [];
 
