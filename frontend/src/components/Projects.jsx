@@ -133,7 +133,7 @@ function Projects({projects = [], loading}) {
                                         <div>{features}</div>
                                     }
                                     {!repository ? null :
-                                        <a target="_blank" href={repository}>
+                                        <a target="_blank" href={repository} rel="noopener noreferrer">
                                             <img className='code-icon' src={code}
                                                  style={{width: '35px', opacity: '0.7'}}/>
                                         </a>
