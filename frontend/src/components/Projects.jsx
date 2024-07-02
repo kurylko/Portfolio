@@ -129,9 +129,6 @@ function Projects({projects = [], loading}) {
                                     {!tech ? null :
                                         <div>{tech}</div>
                                     }
-                                    {!features ? null :
-                                        <div>{features}</div>
-                                    }
                                     {!repository ? null :
                                         <a target="_blank" href={repository} rel="noopener noreferrer">
                                             <img className='code-icon' src={code}
