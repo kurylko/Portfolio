@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useState} from 'react';
 import {useEffect} from 'react';
 import {api} from './consts';
+import useFetchData from "./useFetchData.js";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -26,6 +27,8 @@ function App() {
         getData()
     }, [])
 
+
+    useFetchData();
 
     return (
         <Main projects={projects}
