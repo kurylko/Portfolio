@@ -3,8 +3,8 @@ import {useState} from 'react';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Switcher from "./Switcher.jsx";
 import CButton from "./CButton.jsx";
-import code from "../assets/icons/code.png"
 import Loader from "./Loader.jsx";
+import CodeIcon from '@mui/icons-material/Code';
 
 
 function Projects({projects = [], loading}) {
@@ -63,7 +63,7 @@ function Projects({projects = [], loading}) {
     // Advanced empty message construction
     const checkIfProjectsWithThisVFrameworkExistInOthersLanguages = () => projects.find(proj => proj.framework === selectedFramework);
 
-    const emptyMessage = checkIfProjectsWithThisVFrameworkExistInOthersLanguages() ? `I have no projects written with ${selectedFramework} and ${selectedLanguage} yet. But you can check ${selectedFramework} project on ${selectedLanguage === 'TypeScript' ? 'JavaScript': 'TypeScript'}.` : `Empty. I have no projects written with ${selectedFramework} and ${selectedLanguage} yet. Please, switch to another language or select another framework.`
+    const emptyMessage = checkIfProjectsWithThisVFrameworkExistInOthersLanguages() ? `I have no projects written with ${selectedFramework} and ${selectedLanguage} yet. But you can check ${selectedFramework} project on ${selectedLanguage === 'TypeScript' ? 'JavaScript' : 'TypeScript'}.` : `Empty. I have no projects written with ${selectedFramework} and ${selectedLanguage} yet. Please, switch to another language or select another framework.`
 
 
     return (
@@ -103,14 +103,14 @@ function Projects({projects = [], loading}) {
                 {loading ? <Loader/> : filteredProjects.length === 0 ?
                     <p className="emptyProjectListMessage"> {emptyMessage} </p>
                     : filteredProjects.map(({
-                                         name,
-                                         deployLink,
-                                         pictureUrl,
-                                         tech,
-                                         features,
-                                         repository,
-                                         isShown
-                                     }, index) => (
+                                                name,
+                                                deployLink,
+                                                pictureUrl,
+                                                tech,
+                                                features,
+                                                repository,
+                                                isShown
+                                            }, index) => (
                         <div className='single-project-card' key={index}>
                             <div className='single-project-top'>
                                 <div className='project_name'>{name}</div>
@@ -130,10 +130,9 @@ function Projects({projects = [], loading}) {
                                         <div>{tech}</div>
                                     }
                                     {!repository ? null :
-                                        <a target="_blank" href={repository} rel="noopener noreferrer">
-                                            <img className='code-icon' src={code}
-                                                 style={{width: '35px', opacity: '0.7'}}/>
-                                        </a>
+                                        <CButton variant='outlined' className='plain-button-with-underline'
+                                                 href={repository} target="_blank" rel="noopener noreferrer"><CodeIcon
+                                            style={{width: '35px', opacity: '0.7'}}/>code</CButton>
                                     }
                                 </div>
                             </div>
