@@ -47,9 +47,9 @@ function Contact() {
 
     const handleChange = (event) => {
         event.preventDefault();
-        const { name, value } = event.target;
-        const errors = validateMessage({ ...message, [name]: value });
-        setMessage(prev => ({ ...prev, [name]: value }));
+        const {name, value} = event.target;
+        const errors = validateMessage({...message, [name]: value});
+        setMessage(prev => ({...prev, [name]: value}));
         setErrorMessages(errors);
     };
 
@@ -64,8 +64,15 @@ function Contact() {
                 name: message.userName,
                 email: message.email,
                 message: message.userMessage
-            });
-            alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as possible!`);
+            })
+                .then(() => {
+                    setMessage({
+                        userName: "",
+                        email: "",
+                        userMessage: ""
+                    });
+                    alert(`Hello, ${message.userName}! Thank you for your message! I will answer as soon as possible!`);
+                });
         }
     };
 
@@ -93,7 +100,8 @@ function Contact() {
                     >
 
                     </input>
-                    {errorMessages.userMessage && <span className='contact-error'>{errorMessages.userMessage}</span>}
+                    {errorMessages.userMessage &&
+                        <span className='contact-error'>{errorMessages.userMessage}</span>}
                     <input className='name message-input'
                            type="text"
                            placeholder="Please type your name"
