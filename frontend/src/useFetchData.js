@@ -16,7 +16,6 @@ const useFetchData = () => {
         }
         fetchData();
     }, []);
-    console.log('data from Firebase', data, loading);
 
     return {data, loading};
 }
