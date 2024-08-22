@@ -76,7 +76,6 @@ function Contact() {
         }
     };
 
-
     return (
         <div className='contact'>
             <p>CONTACT</p>
