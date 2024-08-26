@@ -26,9 +26,10 @@ function Projects({projects = [], loading}) {
 
     const filteredFrameworks = [];
 
+
     projects.forEach(element => {
-        if (!filteredFrameworks.find(e => e === element.framework)) {
-            filteredFrameworks.push(element.framework || '')
+        if (element.isShown && !filteredFrameworks.includes(element.framework)) {
+            filteredFrameworks.push(element.framework || '');
         }
     });
 
@@ -115,9 +116,9 @@ function Projects({projects = [], loading}) {
                             <div className='single-project-top'>
                                 <div className='project_name'>{name}</div>
                                 {!deployLink ? null :
-                                    <CButton className='view-project-website-btn plain-button-with-underline'
+                                    <CButton className='view-project-website-btn plain-button-with-underline' target="_blank"
                                              variant='outlined' color='primary' href={deployLink}>
-                                        <ArrowOutwardIcon/></CButton>
+                                        <ArrowOutwardIcon/>Deploy</CButton>
                                 }
                             </div>
                             <div className='single_project'
