@@ -40,11 +40,11 @@ function Projects({projects = [], loading}) {
     };
 
 //  Switcher for JS / TS filtration
-    const [selectedLanguage, setSelectedLanguage] = useState("JavaScript");
+    const [selectedLanguage, setSelectedLanguage] = useState("TypeScript");
     const [isChecked, setIsChecked] = useState(false);
     const handleChangeLanguage = (event) => {
         setIsChecked(!isChecked);
-        setSelectedLanguage(selectedLanguage === "JavaScript" ? "TypeScript" : "JavaScript");
+        setSelectedLanguage(selectedLanguage === "TypeScript" ? "JavaScript" : "TypeScript");
     };
 
 // Forming final list of projects to render
@@ -52,7 +52,7 @@ function Projects({projects = [], loading}) {
     const filteredProjects = projects.filter((project) => {
         let isMatchedByVisibility = !!project.isShown;
         let isMatchedByFramework = project.framework === selectedFramework || !selectedFramework;
-        let isMatchedByLanguage = project.language === 'TypeScript' && isChecked || project.language !== 'TypeScript' && !isChecked;
+        let isMatchedByLanguage = project.language === 'JavaScript' && isChecked || project.language !== 'JavaScript' && !isChecked;
 
         return (
             isMatchedByVisibility &&
