@@ -58,6 +58,7 @@ a:hover:after {
   position: relative;
   transition: 0.3s;
   padding: 10px;
+  cursor: pointer;
 }
 
 .plain-button-with-underline:before {
