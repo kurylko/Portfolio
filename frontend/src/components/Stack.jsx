@@ -27,6 +27,8 @@ import reactflow from '../assets/icons/reactflow.png';
 import cypress from '../assets/icons/cypress.png';
 import tanstack from '../assets/icons/tanstack.svg';
 import aspire from '../assets/icons/aspire.jpg';
+import reactNative from '../assets/icons/native.png';
+import expoIcon from '../assets/icons/expo.png';
 
 
 
@@ -64,6 +66,8 @@ function Stack() {
     // ================= MOBILE =================
     { icon: dart, label: 'Dart' },
     { icon: flutter, label: 'Flutter' },
+    { icon: reactNative, label: 'React Native' },
+    { icon: expoIcon, label: 'Expo' },
 
     // ================= DEVOPS =================
     { icon: docker, label: 'Docker' },
